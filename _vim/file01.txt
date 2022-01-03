@@ -1,3 +1,4 @@
 ../tesT02/Makefile
 Makefile.env
 Extra_battery_package01/main.c
+Extra_battery_package01/main_init.c
