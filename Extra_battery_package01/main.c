@@ -5,20 +5,19 @@
 
 int main(void) {
 
-//     //volatile uint32_t i;
-//     //volatile uint32_t j;
-//     uint8_t __ii ;
-//     //uint8_t __jj ;
-//     uint8_t __rt ;
-// 
-//     // "_led_all.h"
-//     main_init();
-// 
-// 
-//     //_uart_p1_5_tx_only_testloop();
-// 
-//     __delay_cycles(1000000);
-// 
+   //volatile uint32_t i;
+   //volatile uint32_t j;
+   uint8_t __ii ;
+   //uint8_t __jj ;
+   uint8_t __rt ;
+
+   main_init();
+
+
+   //_uart_p1_5_tx_only_testloop();
+
+   __delay_cycles(1000000);
+
 //     while(1)
 //     {
 //         //_led_red_toggle();
