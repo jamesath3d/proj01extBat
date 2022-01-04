@@ -5,17 +5,18 @@
  *      Author: james@h3dgamma.com
  */
 
-#include "_include_all.h"
+#include "main.h"
+
+void main_init_test(void){
+    __delay_cycles(100000); // 0.1 second
+}
 
 void main_init(void){
 
-    WDTCTL = WDTPW | WDTHOLD; // Stop watchdog timer
+    _clk_init_1mhz();
 
+    __delay_cycles(100000); // 0.1 second
 
-    // Disable the GPIO power-on default high-impedance mode
-    // to activate previously configured port settings
-    //    PMM_unlockLPM5();
-    PM5CTL0 &= ~LOCKLPM5;
+    main_init_test();
 
-   __delay_cycles(100000); // 0.1 second
 } // main_init

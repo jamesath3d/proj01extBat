@@ -1,6 +1,9 @@
 ../tesT02/Makefile
 Makefile.env
+Extra_battery_package01/led__init.c
+Extra_battery_package01/led__init.h
 Extra_battery_package01/main.c
+Extra_battery_package01/main.h
 Extra_battery_package01/main_init.c
 ../workspace_v10/BlinkLED_MSP430FR2433_03/_bit_set.c
 ../workspace_v10/BlinkLED_MSP430FR2433_03/_bit_set.h
