@@ -5,10 +5,7 @@
 
 int main(void) {
 
-   //volatile uint32_t i;
-   //volatile uint32_t j;
    uint8_t __ii ;
-   //uint8_t __jj ;
    uint8_t __rt ;
 
    main_init();
