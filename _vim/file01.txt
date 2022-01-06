@@ -1,9 +1,5 @@
 ../tesT02/Makefile
 Makefile.env
-Extra_battery_package01/led_11.c
-Extra_battery_package01/led_12.c
-Extra_battery_package01/led_13.c
-Extra_battery_package01/led_14.c
 Extra_battery_package01/led__init.c
 Extra_battery_package01/led__init.h
 Extra_battery_package01/main.c
