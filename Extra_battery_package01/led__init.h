@@ -51,5 +51,6 @@
 
 
 void led_1234_init(void);
+void led_1234_init_test_loop(void);
 
 #endif
