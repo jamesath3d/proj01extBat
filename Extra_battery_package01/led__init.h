@@ -50,5 +50,6 @@
 #define led_14_off()            led_14_TO_1()
 
 
+void led_1234_init(void);
 
 #endif
