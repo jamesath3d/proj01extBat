@@ -14,10 +14,9 @@ void main_init_test(void){
 
 void main_init(void){
 
-    
-    led_1234_init();
-
     _clk_init_1mhz();
+
+    led_1234_init();
 
     __delay_cycles(100000); // 0.1 second
 

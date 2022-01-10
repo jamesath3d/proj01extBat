@@ -3,12 +3,18 @@
 
 static uint8_t _led_idx = 0 ;
 void led_1234_init_test_loop(void){
+
+    if ( 1 ) {
+        led_11_on();
+        led_12_on();
+        led_13_on();
+        led_14_on();
+        //__delay_cycles(100000);    // 0.1 second
+        __delay_cycles(1000);    // 0.001 second
+        //while ( 1 ) {; }
+    }
+
     while ( 1 ) {
-        __delay_cycles(100000);  // 0.1 second
-        __delay_cycles(1000000); // 1   second
-        //led_14_on()             ;
-        //led_13_on()             ;
-        _led_idx ++ ;
         switch ( _led_idx & 0x3 ) {
             case 1  : led_11_on(); break ;
             case 2  : led_12_on(); break ;
@@ -16,12 +22,20 @@ void led_1234_init_test_loop(void){
             default : led_14_on(); break ;
         }
 
-        __delay_cycles(100000); // 0.1 second
+          __delay_cycles(1000);    // 0.001 second
+        //__delay_cycles(10000);   // 0.01 second
+        //__delay_cycles(100000);  // 0.1 second
         //__delay_cycles(1000000); // 1   second
         led_11_off()            ;
         led_12_off()            ;
         led_13_off()            ;
         led_14_off()            ;
+
+        //__delay_cycles(100000);  // 0.1 second
+        __delay_cycles(1000000); // 1   second
+        //led_14_on()             ;
+        //led_13_on()             ;
+        _led_idx ++ ;
     }
 }
 

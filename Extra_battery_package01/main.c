@@ -11,7 +11,8 @@ int main(void) {
    main_init();
 
 
-   //_uart_p1_5_tx_only_testloop();
+   // led_1234_init_test_loop();
+   // _uart_p1_5_tx_only_testloop();
 
    __delay_cycles(1000000);
 
