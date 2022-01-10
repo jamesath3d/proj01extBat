@@ -14,7 +14,9 @@ void main_init_test(void){
 
 void main_init(void){
 
-    _clk_init_1mhz();
+    //_clk_init_1mhz();
+    //_clk_init_8mhz();
+    _clk_init_16mhz();
 
     led_1234_init();
 

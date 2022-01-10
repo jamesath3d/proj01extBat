@@ -33,6 +33,8 @@ void led_1234_init_test_loop(void){
 
         //__delay_cycles(100000);  // 0.1 second
         __delay_cycles(1000000); // 1   second
+        __delay_cycles(7000000); // 7   second
+        __delay_cycles(8000000); // 8   second
         //led_14_on()             ;
         //led_13_on()             ;
         _led_idx ++ ;
