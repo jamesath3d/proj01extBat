@@ -14,7 +14,8 @@ void main_init_test(void){
 
 void main_init(void){
 
-    _clk_init_32768();
+    _clk_init_16384();
+    //_clk_init_32768();
     //_clk_init_1mhz();
     //_clk_init_8mhz();
     //_clk_init_16mhz();
