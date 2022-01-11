@@ -32,7 +32,7 @@ void led_1234_init_test_loop(void){
         led_13_off()            ;
         led_14_off()            ;
 
-        __delay_cycles(327680);  // 0.1 second
+        __delay_cycles(32768);  // 0.1 second
         //__delay_cycles(100000);  // 0.1 second
         //__delay_cycles(1000000); // 1   second
         //__delay_cycles(7000000); // 7   second
