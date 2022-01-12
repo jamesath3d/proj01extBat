@@ -9,8 +9,7 @@ void led_1234_init_test_loop(void){
         led_12_on();
         led_13_on();
         led_14_on();
-        //__delay_cycles(100000);    // 0.1 second
-        __delay_cycles(1000);    // 0.001 second
+        Delay_1ms();    // 0.001 second
         //while ( 1 ) {; }
     }
 
@@ -22,25 +21,13 @@ void led_1234_init_test_loop(void){
             default : led_14_on(); break ;
         }
 
-          __delay_cycles(15);    // 0.001 second
-        //__delay_cycles(32);    // 0.001 second
-        //__delay_cycles(1000);    // 0.001 second
-        //__delay_cycles(10000);   // 0.01 second
-        //__delay_cycles(100000);  // 0.1 second
-        //__delay_cycles(1000000); // 1   second
+        Delay_1ms();       // 0.001 second
         led_11_off()            ;
         led_12_off()            ;
         led_13_off()            ;
         led_14_off()            ;
+        Delay_1000ms();    // 1 second
 
-        __delay_cycles(16384);  // 0.1 second
-        //__delay_cycles(32768);  // 0.1 second
-        //__delay_cycles(100000);  // 0.1 second
-        //__delay_cycles(1000000); // 1   second
-        //__delay_cycles(7000000); // 7   second
-        //__delay_cycles(8000000); // 8   second
-        //led_14_on()             ;
-        //led_13_on()             ;
         _led_idx ++ ;
     }
 }
