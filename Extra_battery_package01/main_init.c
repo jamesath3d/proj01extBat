@@ -17,8 +17,5 @@ void main_init(void){
 
     led_1234_init();
 
-    Delay_100ms(); // 0.1 second
-
-    main_init_test();
 
 } // main_init
