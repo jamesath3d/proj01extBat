@@ -4,6 +4,7 @@
 
 #include "_include_all.h"
 #include "led__init.h"
+#include "interupt_wdt.h"
 
 #define Clk16384
 

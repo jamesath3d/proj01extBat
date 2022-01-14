@@ -1,6 +1,6 @@
 
-#ifndef led__init_h
-#define led__init_h
+#ifndef _LED__INIT_H
+#define _LED__INIT_H
 
 /*
 // p1.6/red

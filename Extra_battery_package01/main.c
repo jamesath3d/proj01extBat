@@ -2,47 +2,6 @@
 #include "main.h"
 
 
-#define SELA2                  ( SELA << 1 )
-void main_test(void) {
-
-    WDTCTL = WDT_MDLY_32 ;
-    //WDTCTL = WDT_MDLY_8 ;
-    SFRIE1   |= WDTIE ;
-
-    P1DIR    |= BIT6 ;
-
-    _clk_to_16384 ;
-    //_clk_to_32768 ;
-    _gpio_enable ;
-
-    while( 1 ){
-        //_BIS_SR( CPUOFF + GIE ) ;
-        _BIS_SR( LPM0_bits + GIE ) ;
-        //_BIS_SR( LPM1_bits + GIE ) ;
-        //_BIS_SR( LPM2_bits + GIE ) ;
-        //_BIS_SR( LPM3_bits + GIE ) ;
-        //_BIS_SR( LPM4_bits + GIE ) ;
-        // LPM0; // if no GIE, WDT don't work.
-
-        P1OUT &= ~BIT6 ; // on
-        __delay_cycles(1); //__delay_cycles(1000);
-        P1OUT |= BIT6 ; // off
-
-        /*
-           extern uint8_t _wdt_cnt01 ;
-           if ( _wdt_cnt01 != 1 ) {
-           P1OUT |= BIT6 ;
-           } else {
-           P1OUT &= ~BIT6 ;
-           }
-
-        //__delay_cycles(1000000);
-        //__delay_cycles(3000000);
-        */
-    }
-
-} // main_test
-
 
 int main(void) {
 
@@ -50,7 +9,7 @@ int main(void) {
     uint8_t __ii ;
     uint8_t __rt ;
 
-    main_test();
+    wdt_test();
 
     main_init();
 
