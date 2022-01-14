@@ -11,15 +11,9 @@ void main_test(void) {
 
     P1DIR    |= BIT6 ;
 
-    CSCTL4 = ( CSCTL4 & (~(SELMS0 | SELMS1 | SELMS2 ))) | SELMS1 ;
-    // set DIVM to 2 ==> 16384
-    CSCTL5 = ( CSCTL5 & (~(DIVM2 | DIVM1 | DIVM0 ))) | SELMS0 ;
-    // set Aclk to 10 kHz
-    CSCTL4 = ( CSCTL4 & (~(SELA | SELA2 ))) | SELA2 ;
-    // Disable the GPIO power-on default high-impedance mode
-    // to activate previously configured port settings
-    //    PMM_unlockLPM5();
-    PM5CTL0 &= ~LOCKLPM5;
+    _clk_to_16384 ;
+    //_clk_to_32768 ;
+    _gpio_enable ;
 
     while( 1 ){
         //_BIS_SR( CPUOFF + GIE ) ;
