@@ -32,7 +32,8 @@ void wdt_test(void) {
 
     P1DIR    |= BIT6 ;
 
-    _clk_to_16384 ;
+    _clk_to_8192 ;
+    //_clk_to_16384 ;
     //_clk_to_32768 ;
     _gpio_enable ;
 
