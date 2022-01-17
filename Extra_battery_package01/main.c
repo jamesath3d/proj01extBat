@@ -9,7 +9,7 @@ int main(void) {
     uint8_t __ii ;
     uint8_t __rt ;
 
-    wdt_test();
+    //wdt_test();
 
     main_init();
 
