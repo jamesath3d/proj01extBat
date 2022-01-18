@@ -25,17 +25,20 @@ void _wdt_isr(void)
 }
 
 /* WDT is clocked by fACLK (assumed 32KHz) */
-#define WDT_ADLY_1000       (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL0)                /* 1000ms  " */
-#define WDT_ADLY_250        (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL0+WDTIS0)         /* 250ms   " */
-#define WDT_ADLY_16         (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL0+WDTIS1)         /* 16ms    " */
-#define WDT_ADLY_1_9        (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL0+WDTIS1+WDTIS0)  /* 1.9ms   " */
+//#define WDT_ADLY_1000       (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL0)                /* 1000ms   */
+//#define WDT_ADLY_250        (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL0+WDTIS0)         /* 250ms    */
+//#define WDT_ADLY_16         (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL0+WDTIS1)         /* 16ms     */
+//#define WDT_ADLY_1_9        (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL0+WDTIS1+WDTIS0)  /* 1.9ms    */
+/* WDT is clocked by VLO (assumed 10KHz) */
+#define WDT_VLO_30ms517    (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL__VLO)                /* 30.517ms   */
+#define WDT_VLO_7ms629     (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL__VLO+WDTIS0)         /* 7.629ms    */
+#define WDT_VLO_ms488      (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL__VLO+WDTIS1)         /* 0.488us    */
 
 void wdt_init(void) {
 
     //WDTCTL = WDT_MDLY_32 ;
     //WDTCTL = WDT_MDLY_8 ;
-    //WDTCTL = WDT_MDLY_32 | WDTSSEL__VLO;
-    WDTCTL = WDT_MDLY_8 | WDTSSEL__VLO;
+    WDTCTL = WDT_VLO_7ms629 ;
     SFRIE1   |= WDTIE ; // enable WDT interrupt 
 
     _clk_to_8192 ;
