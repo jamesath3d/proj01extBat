@@ -14,7 +14,7 @@ void _wdt_isr(void)
 {
     _wdt_cnt01 ++ ;
 
-    if ( _wdt_cnt01 >> 5 ) {
+    if ( _wdt_cnt01 >> 0 ) {
         _wdt_cnt01 = 0  ;
         //_BIC_SR_IRQ(CPUOFF);
     }
@@ -24,25 +24,39 @@ void _wdt_isr(void)
     LPM4_EXIT;
 }
 
-void wdt_test(void) {
+/* WDT is clocked by fACLK (assumed 32KHz) */
+#define WDT_ADLY_1000       (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL0)                /* 1000ms  " */
+#define WDT_ADLY_250        (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL0+WDTIS0)         /* 250ms   " */
+#define WDT_ADLY_16         (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL0+WDTIS1)         /* 16ms    " */
+#define WDT_ADLY_1_9        (WDTPW+WDTTMSEL+WDTCNTCL+WDTIS2+WDTSSEL0+WDTIS1+WDTIS0)  /* 1.9ms   " */
 
-    WDTCTL = WDT_MDLY_32 ;
+void wdt_init(void) {
+
+    //WDTCTL = WDT_MDLY_32 ;
     //WDTCTL = WDT_MDLY_8 ;
-    SFRIE1   |= WDTIE ;
-
-    P1DIR    |= BIT6 ;
+    //WDTCTL = WDT_MDLY_32 | WDTSSEL__VLO;
+    WDTCTL = WDT_MDLY_8 | WDTSSEL__VLO;
+    SFRIE1   |= WDTIE ; // enable WDT interrupt 
 
     _clk_to_8192 ;
     //_clk_to_16384 ;
     //_clk_to_32768 ;
+
     _gpio_enable ;
+} // wdt_init
+
+void wdt_test(void) {
+
+    wdt_init();
+
+    P1DIR    |= BIT6 ;
 
     while( 1 ){
         //_BIS_SR( CPUOFF + GIE ) ;
-        _BIS_SR( LPM0_bits + GIE ) ;
+        //_BIS_SR( LPM0_bits + GIE ) ;
         //_BIS_SR( LPM1_bits + GIE ) ;
         //_BIS_SR( LPM2_bits + GIE ) ;
-        //_BIS_SR( LPM3_bits + GIE ) ;
+        _BIS_SR( LPM3_bits + GIE ) ;
         //_BIS_SR( LPM4_bits + GIE ) ;
         // LPM0; // if no GIE, WDT don't work.
 
