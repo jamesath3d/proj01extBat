@@ -14,7 +14,8 @@ void main_init_test(void){
 void main_init(void){
 
     //ClkInit();
-    wdt_init_60ms();
+    //wdt_init_60ms();
+    _WDT_init ;
 
     led_1234_init();
 

@@ -9,7 +9,7 @@ int main(void) {
     uint8_t __ii ;
     uint8_t __rt ;
 
-    wdt_test();
+    // wdt_test();
 
     main_init();
 
@@ -24,6 +24,9 @@ int main(void) {
     while(1)
     {
         //led_1234_init_test_once();
+        _WDT_wait_interrupt ;
+
+        led_1_blink_once();
     }
 
 

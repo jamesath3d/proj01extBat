@@ -1,10 +1,10 @@
 
 #include "main.h"
 
-static uint8_t _led_idx = 0 ;
+static uint8_t _led_1234_idx = 0 ;
 void led_1234_init_test_once(void){
 
-    switch ( _led_idx & 0x3 ) {
+    switch ( _led_1234_idx & 0x3 ) {
         case 1  : led_11_on(); break ;
         case 2  : led_12_on(); break ;
         case 3  : led_13_on(); break ;
@@ -18,7 +18,7 @@ void led_1234_init_test_once(void){
     led_14_off()            ;
     Delay_1000ms();    // 1 second
 
-    _led_idx ++ ;
+    _led_1234_idx ++ ;
 } // led_1234_init_test_once
 
 void led_1234_init_test_loop(void){
@@ -48,3 +48,17 @@ void led_1234_init(void){
     led_13_off();
     led_14_off();
 }
+
+static uint8_t _led_1_idx = 0 ;
+void led_1_blink_once(void){
+
+    _led_1_idx ++;
+    if ( _led_1_idx >= 16 ) {
+        _led_1_idx = 0;
+
+        led_11_on();
+        __delay_cycles(1); //__delay_cycles(1000);
+        led_11_off();
+    }
+} // led_1_blink_once
+

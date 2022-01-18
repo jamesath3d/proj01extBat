@@ -18,7 +18,7 @@
 //#define _WDT_wait_interrupt        _BIS_SR( LPM4_bits + GIE ) ;
 //#define _WDT_wait_interrupt         LPM0; // if no GIE, WDT don't work.
 
-#define _WDT_init wdt_init_60ms()
+#define _WDT_init               wdt_init_60ms()
 
 void wdt_test(void) ;
 
