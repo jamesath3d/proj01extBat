@@ -3,7 +3,7 @@
 
 
 static uint8_t _key_1_idx = 0 ;
-void key_1_blink_once(void){
+void key_1_blink_once_on_led3(void){
 
     _key_1_idx ++;
     if ( _key_1_idx >= 8 ) {
@@ -15,10 +15,10 @@ void key_1_blink_once(void){
             led_13_on();
         }
     }
-} // key_1_blink_once
+} // key_1_blink_once_on_led3
 
 static uint8_t _key_1_toggle_cnt = 0 ;
-void key_1_toggle_once(void){
+void key_1_toggle_once_on_led4(void){
 
     _key_1_toggle_cnt ++;
     if ( _key_1_toggle_cnt >= 16 ) {
@@ -30,5 +30,5 @@ void key_1_toggle_once(void){
             led_14_on();
         }
     }
-} // key_1_toggle_once
+} // key_1_toggle_once_on_led4
 

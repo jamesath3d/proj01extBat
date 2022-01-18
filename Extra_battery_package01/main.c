@@ -28,8 +28,8 @@ int main(void) {
 
         led_1_blink_once();
 
-        //key_1_blink_once();
-        key_1_toggle_once();
+        //key_1_blink_once_on_led3();
+        key_1_toggle_once_on_led4();
 
         led_2_blink_once();
 
