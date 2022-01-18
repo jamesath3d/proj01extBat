@@ -13,7 +13,8 @@ void main_init_test(void){
 
 void main_init(void){
 
-    ClkInit();
+    //ClkInit();
+    wdt_init_60ms();
 
     led_1234_init();
 

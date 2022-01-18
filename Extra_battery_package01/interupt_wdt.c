@@ -42,25 +42,26 @@ void wdt_init_60ms(void) {
 
 void wdt_test(void) {
 
-    wdt_init_60ms();
+    _WDT_init;
 
-    P1DIR    |= BIT6 ;
+    //P1DIR    |= BIT6 ;
+    led_1234_init() ;
 
     while( 1 ){
-        //_BIS_SR( CPUOFF + GIE ) ;
-        //_BIS_SR( LPM0_bits + GIE ) ;
-        //_BIS_SR( LPM1_bits + GIE ) ;
-        //_BIS_SR( LPM2_bits + GIE ) ;
-        _BIS_SR( LPM3_bits + GIE ) ;
-        //_BIS_SR( LPM4_bits + GIE ) ;
-        // LPM0; // if no GIE, WDT don't work.
+
+        _WDT_wait_interrupt ;
 
         _wdt_cnt01 ++;
         if ( _wdt_cnt01 >= 16 ) {
             _wdt_cnt01 = 0;
-            P1OUT &= ~BIT6 ; // on
+
+            //P1OUT &= ~BIT6 ; // on
+            //__delay_cycles(1); //__delay_cycles(1000);
+            //P1OUT |= BIT6 ; // off
+
+            led_11_on();
             __delay_cycles(1); //__delay_cycles(1000);
-            P1OUT |= BIT6 ; // off
+            led_11_off();
         }
 
 
