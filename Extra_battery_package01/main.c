@@ -27,6 +27,11 @@ int main(void) {
         _WDT_wait_interrupt ;
 
         led_1_blink_once();
+
+        key_1_blink_once();
+
+        led_2_blink_once();
+
     }
 
 

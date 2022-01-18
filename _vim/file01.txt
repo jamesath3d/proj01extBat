@@ -2,6 +2,8 @@
 Makefile.env
 Extra_battery_package01/interupt_wdt.c
 Extra_battery_package01/interupt_wdt.h
+Extra_battery_package01/key__init.c
+Extra_battery_package01/key__init.h
 Extra_battery_package01/led__init.c
 Extra_battery_package01/led__init.h
 Extra_battery_package01/main.c

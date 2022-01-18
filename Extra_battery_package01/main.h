@@ -1,9 +1,10 @@
 
-#ifndef main_h
-#define main_h
+#ifndef _MAIN_H
+#define _MAIN_H
 
 #include "_include_all.h"
 #include "led__init.h"
+#include "key__init.h"
 #include "interupt_wdt.h"
 
 #define Clk16384
