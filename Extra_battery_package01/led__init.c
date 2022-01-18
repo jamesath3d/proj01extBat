@@ -49,12 +49,12 @@ void led_1234_init(void){
     led_14_off();
 }
 
-static uint8_t _led_1_idx = 0 ;
+static uint8_t led_1_blink_once_idx = 0 ;
 void led_1_blink_once(void){
 
-    _led_1_idx ++;
-    if ( _led_1_idx >= 16 ) {
-        _led_1_idx = 0;
+    led_1_blink_once_idx ++;
+    if ( led_1_blink_once_idx >= 16 ) {
+        led_1_blink_once_idx = 0;
 
         led_11_on();
         __delay_cycles(1); //__delay_cycles(1000);
@@ -62,12 +62,12 @@ void led_1_blink_once(void){
     }
 } // led_1_blink_once
 
-static uint8_t _led_2_idx = 0 ;
+static uint8_t led_2_blink_once_idx = 0 ;
 void led_2_blink_once(void){
 
-    _led_2_idx ++;
-    if ( _led_2_idx >= 32 ) {
-        _led_2_idx = 0;
+    led_2_blink_once_idx ++;
+    if ( led_2_blink_once_idx >= 32 ) {
+        led_2_blink_once_idx = 0;
 
         led_12_on();
         __delay_cycles(1); //__delay_cycles(1000);
