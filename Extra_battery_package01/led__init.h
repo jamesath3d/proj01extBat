@@ -49,6 +49,10 @@
 #define led_14_on()             led_14_TO_0()
 #define led_14_off()            led_14_TO_1()
 
+#define key_1_PORT_             3
+#define key_1_PIN_              0
+#define key_1_init()            _SetIN_pullUP( key_1 ) 
+#define key_1_read()            _READbit_(key_1) // to 1
 
 void led_1234_init(void);
 void led_1234_init_test_loop(void);

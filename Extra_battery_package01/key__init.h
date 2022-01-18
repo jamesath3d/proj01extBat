@@ -4,5 +4,6 @@
 
 
 void key_1_blink_once(void);
+void key_1_toggle_once(void);
 
 #endif

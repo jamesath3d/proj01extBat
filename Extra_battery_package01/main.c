@@ -28,12 +28,10 @@ int main(void) {
 
         led_1_blink_once();
 
-        key_1_blink_once();
+        //key_1_blink_once();
+        key_1_toggle_once();
 
         led_2_blink_once();
 
     }
-
-
-
 }

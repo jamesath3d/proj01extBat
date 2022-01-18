@@ -19,5 +19,6 @@ void main_init(void){
 
     led_1234_init();
 
+    key_1_init();
 
 } // main_init
