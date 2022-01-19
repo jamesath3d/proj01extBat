@@ -21,4 +21,6 @@ void main_init(void){
 
     key_1_init();
 
+    dcdc__init();
+
 } // main_init

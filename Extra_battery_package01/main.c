@@ -32,6 +32,8 @@ int main(void) {
         key_1_once_toggle_value_t1();
         led_34_follow_key1_once();
 
+        led_12_follow_dcdc_status34();
+
         //led_2_blink_once();
 
     }

@@ -1,5 +1,7 @@
 ../tesT02/Makefile
 Makefile.env
+Extra_battery_package01/dcdc__init.c
+Extra_battery_package01/dcdc__init.h
 Extra_battery_package01/interupt_timer.c
 Extra_battery_package01/interupt_wdt.c
 Extra_battery_package01/interupt_wdt.h
@@ -20,6 +22,7 @@ Extra_battery_package01/main.h
 Extra_battery_package01/main_init.c
 Extra_battery_package01/wdt_init_60ms.c
 Extra_battery_package01/wdt_test.c
+src09/led_12_follow_dcdc_status34.c
 ../../../../../ti/ti/ccs1040/ccs/ccs_base/msp430/include_gcc/in430.h
 ../../../../../ti/ti/ccs1040/ccs/ccs_base/msp430/include_gcc/iomacros.h
 ../../../../../ti/ti/ccs1040/ccs/ccs_base/msp430/include_gcc/msp430fr2433.h
