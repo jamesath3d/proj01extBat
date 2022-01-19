@@ -1,9 +1,10 @@
 
 #include "main.h"
 
+uint8_t _key_1_value_t1 = 0 ;
+
 static uint8_t _key_1_toggle_step = 0 ;
 static uint8_t _key_1_toggle_cnt = 0 ;
-static uint8_t _key_1_value_t1 = 0 ;
 #define _KEY_delay_cycle1    2
 #define _KEY_delay_cycle2    1
 void key_1_once_toggle_value_t1(void){

@@ -30,7 +30,7 @@ int main(void) {
 
         //key_1_blink_once_on_led3();
         key_1_once_toggle_value_t1();
-        led34_follow_key1_once();
+        led_34_follow_key1_once();
 
         //led_2_blink_once();
 

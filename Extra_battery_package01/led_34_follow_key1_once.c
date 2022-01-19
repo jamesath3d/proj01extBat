@@ -1,7 +1,9 @@
 
 #include "main.h"
 
-void led34_follow_key1_onceX(void){
+extern uint8_t _key_1_value_t1 ;
+
+void led_34_follow_key1_onceX(void){
 
     if ( _key_1_value_t1 ) {
         led_14_TO_0();
@@ -9,10 +11,10 @@ void led34_follow_key1_onceX(void){
         led_14_TO_1();
     }
 
-} // led34_follow_key1_onceX
+} // led_34_follow_key1_onceX
 
 static uint8_t led34_follow_key1_once_idx = 0 ;
-void led34_follow_key1_once(void){
+void led_34_follow_key1_once(void){
 
     led34_follow_key1_once_idx ++;
     if ( led34_follow_key1_once_idx >= 16 ) {
@@ -28,5 +30,5 @@ void led34_follow_key1_once(void){
         led_14_off();
     }
 
-} // led34_follow_key1_once
+} // led_34_follow_key1_once
 
