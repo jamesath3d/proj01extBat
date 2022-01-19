@@ -31,6 +31,7 @@ int main(void) {
         //key_1_blink_once_on_led3();
         key_1_once_toggle_value_t1();
         led_34_follow_key1_once();
+        vturn_34_follow_key1_once();
 
         led_12_follow_dcdc_status34();
 

@@ -23,6 +23,7 @@ Extra_battery_package01/main.h
 Extra_battery_package01/main_init.c
 Extra_battery_package01/vbat__init.c
 Extra_battery_package01/vbat__init.h
+Extra_battery_package01/vturn_34_follow_key1_once.c
 Extra_battery_package01/vturn__init.c
 Extra_battery_package01/vturn__init.h
 Extra_battery_package01/wdt_init_60ms.c
