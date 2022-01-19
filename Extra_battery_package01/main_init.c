@@ -23,4 +23,6 @@ void main_init(void){
 
     dcdc__init();
 
+    vturn__init();
+
 } // main_init

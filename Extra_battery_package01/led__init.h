@@ -50,25 +50,11 @@
 #define led_14_off()            led_14_TO_1()
 #define led_14_read()           _READbit_(led_14)
 
-#define key_1_PORT_             3
-#define key_1_PIN_              0
-#define key_1_init()            _SetIN_pullUP( key_1 ) 
-#define key_1_read()            _READbit_(key_1) 
-
-#define dcdc_state3_PORT_       2
-#define dcdc_state3_PIN_        0
-#define dcdc_state3_init()      _SetIN_pullUP( dcdc_state3 ) 
-#define dcdc_state3_read()      _READbit_(dcdc_state3) 
-
-#define dcdc_state4_PORT_       2
-#define dcdc_state4_PIN_        1
-#define dcdc_state4_init()      _SetIN_pullUP( dcdc_state4 ) 
-#define dcdc_state4_read()      _READbit_(dcdc_state4) 
-
 void led_1234_init_all_off(void);
 void led_1234_init_test_loop(void);
 void led_1_blink_once(void);
 void led_1234_init_test_once(void);
 void led_2_blink_once(void);
+void led_12_follow_dcdc_status34(void);
 
 #endif
