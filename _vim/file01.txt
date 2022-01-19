@@ -3,6 +3,8 @@ Makefile.env
 Extra_battery_package01/interupt_timer.c
 Extra_battery_package01/interupt_wdt.c
 Extra_battery_package01/interupt_wdt.h
+Extra_battery_package01/key_1_blink_once_on_led3.c
+Extra_battery_package01/key_1_once_toggle_value_t1.c
 Extra_battery_package01/key__init.c
 Extra_battery_package01/key__init.h
 Extra_battery_package01/led_1234_init_all_off.c
@@ -10,6 +12,7 @@ Extra_battery_package01/led_1234_init_test_loop.c
 Extra_battery_package01/led_1234_init_test_once.c
 Extra_battery_package01/led_1_blink_once.c
 Extra_battery_package01/led_2_blink_once.c
+Extra_battery_package01/led34_follow_key1_once.c
 Extra_battery_package01/led__init.c
 Extra_battery_package01/led__init.h
 Extra_battery_package01/main.c
