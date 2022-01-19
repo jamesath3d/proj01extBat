@@ -55,8 +55,10 @@
 #define key_1_init()            _SetIN_pullUP( key_1 ) 
 #define key_1_read()            _READbit_(key_1) 
 
-void led_1234_init(void);
+void led_1234_init_all_off(void);
 void led_1234_init_test_loop(void);
 void led_1_blink_once(void);
+void led_1234_init_test_once(void);
+void led_2_blink_once(void);
 
 #endif

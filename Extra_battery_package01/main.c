@@ -6,8 +6,8 @@
 int main(void) {
 
 
-    uint8_t __ii ;
-    uint8_t __rt ;
+    //uint8_t __ii ;
+    //uint8_t __rt ;
 
     // wdt_test();
 

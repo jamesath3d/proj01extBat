@@ -17,7 +17,7 @@ void main_init(void){
     //wdt_init_60ms();
     _WDT_init ;
 
-    led_1234_init();
+    led_1234_init_all_off();
 
     key_1_init();
 

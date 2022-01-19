@@ -45,7 +45,7 @@ void wdt_test(void) {
     _WDT_init;
 
     //P1DIR    |= BIT6 ;
-    led_1234_init() ;
+    led_1234_init_all_off() ;
 
     while( 1 ){
 

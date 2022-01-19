@@ -21,5 +21,6 @@
 #define _WDT_init               wdt_init_60ms()
 
 void wdt_test(void) ;
+void wdt_init_60ms(void) ;
 
 #endif
