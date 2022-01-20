@@ -16,7 +16,7 @@
 #define led_14_PIN_             7
 
 #define LED_USE_INPUT1_OUTPUT0
-#ifdef LED_USE_INPUT1_OUTPUT0
+#ifdef LED_USE_INPUT1_OUTPUT0 // off -> input(hi-Z), on -> output_0
 
 #define led_11_TO_0()           { _SetOUT_(led_11); }     // to 0
 #define led_12_TO_0()           { _SetOUT_(led_12); }     // to 0
@@ -31,7 +31,7 @@
 #define led_13_TO_1()           { _SetIN_(led_13); }     // to 1
 #define led_14_TO_1()           { _SetIN_(led_14); }     // to 1
 
-#else
+#else // off -> 1 , on -> 0 // output
 
 #define led_11_TO_0()           { _Set0_( led_11 ); }     // to 0
 #define led_12_TO_0()           { _Set0_( led_12 ); }     // to 0

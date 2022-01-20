@@ -36,12 +36,14 @@ void led_12_follow_dcdc_status34(void){
             led_11_off();
         } else {
             led_11_on();
+            led_11_off();
         }
 
         if ( dcdc_state4in_read() ) {
             led_12_off();
         } else {
             led_12_on();
+            led_12_off();
         }
 
 } // led_12_follow_dcdc_status34
