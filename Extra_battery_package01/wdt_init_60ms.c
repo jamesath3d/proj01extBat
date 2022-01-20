@@ -15,9 +15,9 @@ void wdt_init_60ms(void) {
     //WDTCTL = WDT_VLO_7ms1 ;
 
 
-    _clk_to_8192 ;
-    //_clk_to_16384 ;
-    //_clk_to_32768 ;
+    _clk_to_8192 ; // when VLO_60ms, 55ms WDT, 980us on/off // total 13.5ms,24%
+    //_clk_to_16384 ; // when VLO_60ms, 55ms WDT, 480us on/off
+    //_clk_to_32768 ; // when VLO_60ms, 55ms WDT, 240us on/off // total 3.25ms,6%
 
     _gpio_enable ;
 

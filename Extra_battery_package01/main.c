@@ -20,22 +20,26 @@ int main(void) {
     //led_1234_init_test_loop();
 
     //Delay_100ms(); // 0.1 second
-
+#define debug_test_usage 0
     while(1)
     {
         //led_1234_init_test_once();
+        if ( debug_test_usage ) led_13_on();
         _WDT_wait_interrupt ;
+        if ( debug_test_usage ) led_13_off();
 
         //led_1_blink_once();
 
         //key_1_blink_once_on_led3();
         key_1_once_toggle_value_t1();
-        led_34_follow_key1_t1_once();
         vturn_34_follow_key1_once();
+        led_34_follow_key1_t1_once();
 
         led_12_follow_dcdc_status34();
 
         //led_2_blink_once();
+        // main_init();
+        // wdt_init_60ms
 
     }
 }
