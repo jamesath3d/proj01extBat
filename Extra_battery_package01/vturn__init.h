@@ -3,10 +3,6 @@
 #define _VTURN__INIT_H
 
 
-//void key_1_blink_once_on_led3(void);
-//void key_1_once_toggle_value_t1(void);
-//void led_34_follow_key1_once(void);
-
 // p2.3/vturnOff3
 #define vturnOff3_PORT_            2
 #define vturnOff3_PIN_             3
