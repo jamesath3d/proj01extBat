@@ -15,7 +15,7 @@ Extra_battery_package01/led_1234_init_test_once.c
 Extra_battery_package01/led_12_follow_dcdc_status34.c
 Extra_battery_package01/led_1_blink_once.c
 Extra_battery_package01/led_2_blink_once.c
-Extra_battery_package01/led_34_follow_key1_once.c
+Extra_battery_package01/led_34_follow_key1_t1_once.c
 Extra_battery_package01/led__init.c
 Extra_battery_package01/led__init.h
 Extra_battery_package01/main.c
