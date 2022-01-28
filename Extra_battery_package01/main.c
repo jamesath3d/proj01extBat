@@ -25,7 +25,7 @@ int main(void) {
     while(1)
     {
         //led_1234_init_test_once();
-        _UART_P1_5_TX_PUT_CH_A ; _UART_P1_5_TX_PUT_CH_A ; _UART_P1_5_TX_PUT_CH_A ;
+        _UART_P1_5_TX_PUT_CH_A ; // _UART_P1_5_TX_PUT_CH_A ; _UART_P1_5_TX_PUT_CH_A ;
         //if ( debug_test_usage ) led_13_on();
         
         _WDT_wait_interrupt ;
