@@ -19,6 +19,8 @@ void main_init(void){
 
     led_1234_init_all_off();
 
+    _uart_p1_5_tx_only_init();
+
     key_1_init();
 
     dcdc__init();

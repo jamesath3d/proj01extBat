@@ -15,18 +15,23 @@ int main(void) {
 
 
     // led_1234_init_test_loop();
-    // _uart_p1_5_tx_only_testloop();
+    // led_1234_init_test_loop();
 
-    //led_1234_init_test_loop();
+    //_uart_p1_5_tx_only_testloop();
+
 
     //Delay_100ms(); // 0.1 second
 #define debug_test_usage 0
     while(1)
     {
         //led_1234_init_test_once();
-        if ( debug_test_usage ) led_13_on();
+        _UART_P1_5_TX_PUT_CH_A ; _UART_P1_5_TX_PUT_CH_A ; _UART_P1_5_TX_PUT_CH_A ;
+        //if ( debug_test_usage ) led_13_on();
+        
         _WDT_wait_interrupt ;
-        if ( debug_test_usage ) led_13_off();
+
+        //if ( debug_test_usage ) led_13_off();
+        _UART_P1_5_TX_PUT_CH_5 ;
 
         //led_1_blink_once();
 
