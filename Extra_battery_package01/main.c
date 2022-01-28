@@ -3,6 +3,7 @@
 
 
 
+static uint8_t _mIdx ;
 int main(void) {
 
 
@@ -25,13 +26,15 @@ int main(void) {
     while(1)
     {
         //led_1234_init_test_once();
-        _UART_P1_5_TX_PUT_CH_A ; // _UART_P1_5_TX_PUT_CH_A ; _UART_P1_5_TX_PUT_CH_A ;
+        //_UART_P1_5_TX_PUT_CH_A ; // _UART_P1_5_TX_PUT_CH_A ; _UART_P1_5_TX_PUT_CH_A ;
+        _uart_p1_5_tx_only_put_rn();
         //if ( debug_test_usage ) led_13_on();
         
         _WDT_wait_interrupt ;
 
         //if ( debug_test_usage ) led_13_off();
-        _UART_P1_5_TX_PUT_CH_5 ;
+        //_UART_P1_5_TX_PUT_CH_5 ;
+        _uart_p1_5_tx_only_put_hex_u8( _mIdx++ ) ;
 
         //led_1_blink_once();
 
