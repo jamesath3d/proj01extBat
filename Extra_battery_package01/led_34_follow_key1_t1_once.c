@@ -25,11 +25,11 @@ void led_34_follow_key1_t1_once(void){
 
         if ( _key_1_value_t1 ) {
             led_14_on();
-            __delay_cycles(100); // 100us @ mclk 1Mhz
+            __delay_cycles(10); // 10us @ mclk 1Mhz
             led_14_off();
         } else {
             led_13_on();
-            __delay_cycles(100); // 100us @ mclk 1Mhz
+            __delay_cycles(10); // 10us @ mclk 1Mhz
             led_13_off();
         }
     }
