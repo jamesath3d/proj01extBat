@@ -1,5 +1,7 @@
 ../tesT02/Makefile
 Makefile.env
+Extra_battery_package01/adc_init.c
+Extra_battery_package01/adc_init.h
 Extra_battery_package01/dcdc__init.c
 Extra_battery_package01/dcdc__init.h
 Extra_battery_package01/interupt_timer.c
