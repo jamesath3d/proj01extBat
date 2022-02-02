@@ -1,1 +1,12 @@
-../tesT04/.gitignore
+cscope.in.out
+cscope.out
+cscope.po.out
+tags
+/log.b4*m.txt
+/log.t5?.txt
+/log.k5?.txt
+[0-9a-z].txt
+/ttt/
+/tt[0-9]/
+nohup.out
+Log/log.txt
