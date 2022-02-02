@@ -22,10 +22,10 @@
 #define led_12_TO_0()           { _SetOUT_(led_12); }     // to 0
 #define led_13_TO_0()           { _SetOUT_(led_13); }     // to 0
 #define led_14_TO_0()           { _SetOUT_(led_14); }     // to 0
-#define led_11_init()           { _Set0_( led_11 ); }
-#define led_12_init()           { _Set0_( led_12 ); }
-#define led_13_init()           { _Set0_( led_13 ); }
-#define led_14_init()           { _Set0_( led_14 ); }
+#define led_11_init()           { _PinInAsOffInitOut0(led_11); }
+#define led_12_init()           { _PinInAsOffInitOut0(led_12); }
+#define led_13_init()           { _PinInAsOffInitOut0(led_13); }
+#define led_14_init()           { _PinInAsOffInitOut0(led_14); }
 #define led_11_TO_1()           { _SetIN_(led_11); }     // to 1
 #define led_12_TO_1()           { _SetIN_(led_12); }     // to 1
 #define led_13_TO_1()           { _SetIN_(led_13); }     // to 1
