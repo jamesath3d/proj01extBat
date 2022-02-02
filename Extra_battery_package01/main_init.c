@@ -17,6 +17,8 @@ void main_init(void){
     //wdt_init_60ms();
     _WDT_init ;
 
+    _gpio_init();
+
     led_1234_init_all_off();
 
     _uart_p1_5_tx_only_init();

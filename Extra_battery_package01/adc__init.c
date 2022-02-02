@@ -3,6 +3,11 @@
 
 void adc__init(void) {
 
+    // /home/ti/ti/ccs1040/ccs/ccs_base/msp430/include_gcc/msp430fr2433_symbols.ld
+    // /home/ti/ti/ccs1040/ccs/ccs_base/msp430/include_gcc/msp430f2002_symbols.ld
+    // you will find SYSCFG2 in the msp430fr2433_symbols.ld,
+    // and ADC10AE0 in the msp430f2002_symbols.ld
+
     SYSCFG2 |= ADCPCTL1 ; // /* ADC input A1 pin select */
     // PxSEL0 = 0 ; // msp430fr2433 has no PxSEL0
     // ADC10AE0 // msp430fr2433 has no ADC10AE0
