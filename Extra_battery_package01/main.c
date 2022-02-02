@@ -15,8 +15,6 @@ int main(void) {
 
     main_init();
 
-    // adc__init();
-
     // led_1234_init_test_loop();
     // led_1234_init_test_loop();
 
@@ -52,6 +50,8 @@ int main(void) {
         led_34_follow_key1_t1_once();
 
         led_12_follow_dcdc_status34();
+
+        // adc__init();
 
         //led_2_blink_once();
         // main_init();
