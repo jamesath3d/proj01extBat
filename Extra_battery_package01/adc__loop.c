@@ -28,29 +28,13 @@ void adc__loop_once(void) {
      *          so , it can be used to detect busy.
      */
 
-    if ( 0 && ( 0 != ADCIFG )) {
-        _UART_P1_5_TX_PUT_CH('<');
-        _uart_p1_5_tx_only_put_uint16( ADCIFG ) ;
-        _UART_P1_5_TX_PUT_CH('>');
-    }
-
-    if ( 0 && ( 0 != ADCCTL0 )) {
-        _UART_P1_5_TX_PUT_CH('[');
-        _uart_p1_5_tx_only_put_uint16( ADCCTL0 ) ; // ADCSC
-        _UART_P1_5_TX_PUT_CH(',');
-        _uart_p1_5_tx_only_put_uint16( ADCCTL1 ) ; // ADCBUSY
-        _UART_P1_5_TX_PUT_CH(',');
-        _uart_p1_5_tx_only_put_uint16( ADCIFG ) ; // ADCIFG0
-        _UART_P1_5_TX_PUT_CH(']');
-    }
-
     // adc__init();
     if ( ( ADCCTL0 & ADCSC ) && ( ADCCTL1 & ADCBUSY ) ) { // if a convert is started , and busy
         ADCCTL0 &= ~ADCSC; // FallDown ADCSC
         adc_i8 ++ ;
     }
 
-    if ( ADCIFG & ADCIFG0 ) {
+    if ( 1 && ( ADCIFG & ADCIFG0 )) {
         if ( 1 ) {
             adc_i16 = ADCMEM0 ; 
             _uart_p1_5_tx_only_put_uint16( adc_i16 ) ; 
@@ -58,7 +42,8 @@ void adc__loop_once(void) {
             adc_i32 = 3300 * adc_i16 / 0x400 ; 
 
             _uart_p1_5_tx_only_put_uint16d( adc_i32 ) ; 
-            _uart_p1_5_tx_only_put_uint16d( adc_i32 * 502/100) ; 
+            //_uart_p1_5_tx_only_put_uint16d( adc_i32 * 502/100) ; 
+            _uart_p1_5_tx_only_put_uint16d( adc_i32 * 12/2) ; 
         } else {
             _uart_p1_5_tx_only_put_uint16( ADCMEM0 ) ; 
         }
