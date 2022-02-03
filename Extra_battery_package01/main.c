@@ -51,8 +51,6 @@ int main(void) {
 
         led_12_follow_dcdc_status34();
 
-        // adc__init();
-
         if ( 2 == _mIdx2 ) {
             adc__loop_once();
         }

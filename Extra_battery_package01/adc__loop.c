@@ -1,6 +1,7 @@
 
 #include "main.h"
 
+static uint8_t adc_i8 = 0 ;
 void adc__loop_once(void) {
     // ADCCTL0 = ADCSC                  /* ADC Start Conversion */
     //           ADCENC                 /* ADC Enable Conversion */
@@ -25,10 +26,37 @@ void adc__loop_once(void) {
      *          so , it can be used to detect busy.
      */
 
-    if ( 2 == 3 ) {
+    if ( 0 && ( 0 != ADCIFG )) {
         _UART_P1_5_TX_PUT_CH('<');
         _uart_p1_5_tx_only_put_uint16( ADCIFG ) ;
         _UART_P1_5_TX_PUT_CH('>');
     }
 
+    if ( 0 && ( 0 != ADCCTL0 )) {
+        _UART_P1_5_TX_PUT_CH('[');
+        _uart_p1_5_tx_only_put_uint16( ADCCTL0 ) ; // ADCSC
+        _UART_P1_5_TX_PUT_CH(',');
+        _uart_p1_5_tx_only_put_uint16( ADCCTL1 ) ; // ADCBUSY
+        _UART_P1_5_TX_PUT_CH(',');
+        _uart_p1_5_tx_only_put_uint16( ADCIFG ) ; // ADCIFG0
+        _UART_P1_5_TX_PUT_CH(']');
+    }
+
+    // adc__init();
+    if ( ( ADCCTL0 & ADCSC ) && ( ADCCTL1 & ADCBUSY ) ) { // if a convert is started , and busy
+        ADCCTL0 &= ~ADCSC; // FallDown ADCSC
+        adc_i8 ++ ;
+    }
+
+    if ( ADCIFG & ADCIFG0 ) {
+        _uart_p1_5_tx_only_put_uint16( ADCMEM0 ) ; 
+    }
+    if ( 0 == ( ADCCTL0 & ADCSC ) // if NO convert is started 
+            && 0 == ( ADCCTL1 & ADCBUSY ) // if UN-busy
+            && 0 == ( ADCIFG & ADCIFG0 )  // if data in ADCMEM0 has been read.
+            ) { 
+        ADCCTL0 |= ADCSC; // start a NEW convert
+    }
 } // adc__loop_once
+
+
