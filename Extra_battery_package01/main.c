@@ -53,6 +53,10 @@ int main(void) {
 
         // adc__init();
 
+        if ( 2 == _mIdx2 ) {
+            adc__loop_once();
+        }
+
         //led_2_blink_once();
         // main_init();
         // wdt_init_60ms

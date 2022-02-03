@@ -14,7 +14,7 @@ void adc__init(void) {
     // PxSEL0 = 0 ; // msp430fr2433 has no PxSEL0
     // ADC10AE0 // msp430fr2433 has no ADC10AE0
 
-    ADCCTL0 = ADCSHT_1 ; // bit 8-11 --> 'b0010 --> 16 ADCCLK sample hold
+    ADCCTL0 = ADCSHT_1 ; // bit 8-11 --> 'b0010 --> 16 ADCCLK sample hold , so total is 16 + 12 clock to get the result, about 130ms
     //ADC10CTL1 = INCH_1;                         // ADC Channel -> 1 (P1.1)
     //ADC10CTL0 = SREF_0 + ADC10SHT_3 + ADC10ON;  // Ref -> Vcc, 64 CLK S&H
 
@@ -31,3 +31,4 @@ void adc__init(void) {
     // ADCHI
 
 } // adc__init
+
