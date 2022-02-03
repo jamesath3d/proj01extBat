@@ -38,7 +38,7 @@ int main(void) {
 
         //if ( debug_test_usage ) led_13_off();
         //_UART_P1_5_TX_PUT_CH_5 ;
-        if ( 1 == _mIdx2 ) {
+        if ( 3 == _mIdx2 ) {
             _uart_p1_5_tx_only_put_hex_u8( _mIdx++ ) ;
         }
 
@@ -51,7 +51,7 @@ int main(void) {
 
         led_12_follow_dcdc_status34();
 
-        if ( 2 == _mIdx2 ) {
+        if ( 1 == _mIdx2 ) {
             adc__loop_once();
         }
 
