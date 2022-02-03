@@ -56,8 +56,7 @@ void adc__loop_once(void) {
             _uart_p1_5_tx_only_put_uint16( adc_i16 ) ; 
             //adc_i32 = 3300 * adc_i16 / 0x3FF ; 
             adc_i32 = 3300 * adc_i16 / 0x400 ; 
-            //_uart_p1_5_tx_only_put_uint16( adc_i32 & 0xFFFF ) ; 
-            //_uart_p1_5_tx_only_put_uint16d( adc_i32 & 0xFFFF ) ; 
+
             _uart_p1_5_tx_only_put_uint16d( adc_i32 ) ; 
             _uart_p1_5_tx_only_put_uint16d( adc_i32 * 502/100) ; 
         } else {
