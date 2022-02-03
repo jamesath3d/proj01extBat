@@ -25,4 +25,10 @@ void adc__loop_once(void) {
      *          so , it can be used to detect busy.
      */
 
+    if ( 2 == 3 ) {
+        _UART_P1_5_TX_PUT_CH('<');
+        _uart_p1_5_tx_only_put_uint16( ADCIFG ) ;
+        _UART_P1_5_TX_PUT_CH('>');
+    }
+
 } // adc__loop_once

@@ -29,7 +29,7 @@ int main(void) {
         //led_1234_init_test_once();
         //_UART_P1_5_TX_PUT_CH_A ; // _UART_P1_5_TX_PUT_CH_A ; _UART_P1_5_TX_PUT_CH_A ;
         if ( 0 == _mIdx2 -- ) {
-            _mIdx2 = 8 ;
+            _mIdx2 = 32 ;
             _uart_p1_5_tx_only_put_rn();
         }
         //if ( debug_test_usage ) led_13_on();
