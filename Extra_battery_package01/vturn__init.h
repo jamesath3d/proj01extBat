@@ -13,9 +13,9 @@
 #define vturnOff3y_PORT_           2
 #define vturnOff3y_PIN_            5
 
-#define vturnOff3_TO_1()           {                       _SetIN_(vturnOff3y);                       }     // to 1
-#define vturnOff3_TO_0()           {                      _SetOUT_(vturnOff3y);                       }     // to 0
-#define vturnOff3__init()          {           _PinInAsOffInitOut0(vturnOff3y);                       }
+#define vturnOff3_TO_1()           {             _SetIN_(vturnOff3y);              _SetIN_(vturnOff4); }     // to 1
+#define vturnOff3_TO_0()           {            _SetOUT_(vturnOff3y);             _SetOUT_(vturnOff4); }     // to 0
+#define vturnOff3__init()          { _PinInAsOffInitOut0(vturnOff3y);  _PinInAsOffInitOut0(vturnOff4); }
 
 #define vturnOff3__to_0()          vturnOff3_TO_0()
 #define vturnOff3__to_1()          vturnOff3_TO_1()
@@ -35,9 +35,9 @@
 #define vturnOff4_TO_0()           { _SetOUT_(vturnOff4); _SetOUT_(vturnOff4x); _SetOUT_(vturnOff4y); }     // to 0
 #define vturnOff4__init()          {   _Set0_(vturnOff4);   _Set0_(vturnOff4x);   _Set0_(vturnOff4y); }
 */
-#define vturnOff4_TO_1()           {              _SetIN_(vturnOff4y); }     // to 1
-#define vturnOff4_TO_0()           {             _SetOUT_(vturnOff4y); }     // to 0
-#define vturnOff4__init()          {  _PinInAsOffInitOut0(vturnOff4y); }
+#define vturnOff4_TO_1()           {              _SetIN_(vturnOff4y);             _SetIN_(vturnOff3); }     // to 1
+#define vturnOff4_TO_0()           {             _SetOUT_(vturnOff4y);            _SetOUT_(vturnOff3); }     // to 0
+#define vturnOff4__init()          {  _PinInAsOffInitOut0(vturnOff4y); _PinInAsOffInitOut0(vturnOff3); }
 #define vturnOff4__to_0()          vturnOff4_TO_0()
 #define vturnOff4__to_1()          vturnOff4_TO_1()
 
