@@ -2,18 +2,31 @@
 #ifndef _LED__INIT_H
 #define _LED__INIT_H
 
-// p1.6/led_11
+//// p1.6/led_11
+//#define led_11_PORT_            1
+//#define led_11_PIN_             6
+//// p1.7/led_12
+//#define led_12_PORT_            1
+//#define led_12_PIN_             7
+//// p3.2/led_13
+//#define led_13_PORT_            3
+//#define led_13_PIN_             2
+//// p2.7/led_14
+//#define led_14_PORT_            2
+//#define led_14_PIN_             7
+
+// p1.3/led_11
 #define led_11_PORT_            1
-#define led_11_PIN_             6
-// p1.7/led_12
+#define led_11_PIN_             3
+// p1.2/led_12
 #define led_12_PORT_            1
-#define led_12_PIN_             7
-// p3.2/led_13
-#define led_13_PORT_            3
-#define led_13_PIN_             2
-// p2.7/led_14
-#define led_14_PORT_            2
-#define led_14_PIN_             7
+#define led_12_PIN_             2
+// p1.1/led_13
+#define led_13_PORT_            1
+#define led_13_PIN_             1
+// p1.0/led_14
+#define led_14_PORT_            1
+#define led_14_PIN_             0
 
 #define LED_USE_INPUT1_OUTPUT0
 #ifdef LED_USE_INPUT1_OUTPUT0 // off -> input(hi-Z), on -> output_0

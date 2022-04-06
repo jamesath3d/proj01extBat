@@ -8,5 +8,6 @@
 #define adc_state3in_read()    _READbit_(adc_state3) 
 
 void adc__init(void) ;
+void adc__loop_once(void) ;
 
 #endif
