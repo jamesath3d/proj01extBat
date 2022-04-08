@@ -36,7 +36,7 @@ int main(void) {
         }
         //if ( debug_test_usage ) led_13_on();
         
-        _WDT_wait_interrupt ;
+        _WDT_wait_interrupt_LPM3 ;
 
         //if ( debug_test_usage ) led_13_off();
         //_UART_P1_5_TX_PUT_CH_5 ;

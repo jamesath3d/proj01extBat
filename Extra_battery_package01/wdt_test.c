@@ -5,14 +5,14 @@
 static uint8_t _wdt_cnt01 = 0 ;
 void wdt_test(void) {
 
-    _WDT_init;
+    wdt_init_60ms();
 
     //P1DIR    |= BIT6 ;
     led_1234_init_all_off() ;
 
     while( 1 ){
 
-        _WDT_wait_interrupt ;
+        _WDT_wait_interrupt_LPM3 ;
 
         _wdt_cnt01 ++;
         if ( _wdt_cnt01 >= 16 ) {
