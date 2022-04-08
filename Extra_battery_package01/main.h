@@ -2,7 +2,7 @@
 #ifndef _MAIN_H
 #define _MAIN_H
 
-#define Clk16384
+#define Clk1mhz
 
 #include "_include_all.h"
 #include "led__init.h"
