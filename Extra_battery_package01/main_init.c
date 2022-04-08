@@ -7,9 +7,17 @@
 
 #include "main.h"
 
-void main_init_test(void){
+void main_init_test1(void){
     led_1234_init_test_loop();
-}
+} // main_init_test1
+
+void main_init_test2(void){
+    while(1)
+    {
+        _WDT_wait_interrupt_LPM3 ;
+        led_1234_init_test_once_only();
+    }
+} // main_init_test2
 
 void main_init(void){
 
@@ -28,5 +36,7 @@ void main_init(void){
     vturn__init();
 
     //adc__init();
+
+    //main_init_test2();
 
 } // main_init

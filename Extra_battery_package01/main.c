@@ -24,6 +24,14 @@ int main(void) {
         main_init_test();
     }
 
+    while(1)
+    {
+        _WDT_wait_interrupt_LPM3 ;
+        led_11_on();
+        _WDT_wait_interrupt_LPM3 ;
+        led_11_off();
+    }
+
     //Delay_100ms(); // 0.1 second
 #define debug_test_usage 0
     while(1)
