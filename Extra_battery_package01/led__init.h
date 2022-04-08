@@ -89,6 +89,12 @@
 #define led_13_read()           _READbit_(led_13)
 #define led_14_read()           _READbit_(led_14)
 
+#define led_1234_init()  { \
+    led_10_init(); \
+    led_11_init(); \
+    led_12_init(); \
+    led_13_init(); \
+    led_14_init(); }
 
 void led_1234_init_all_off(void);
 void led_1234_init_test_loop(void);
@@ -96,5 +102,9 @@ void led_1_blink_once(void);
 void led_1234_init_test_once(void);
 void led_2_blink_once(void);
 void led_12_follow_dcdc_status34(void);
+
+#define led_1234_init_test_by_byte_ALL   0x1F
+#define led_1234_init_test_by_byte_MSB   0x10
+void led_1234_init_test_by_byte(uint8_t ___byte);
 
 #endif
