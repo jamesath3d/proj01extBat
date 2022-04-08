@@ -18,7 +18,7 @@ int main(void) {
 
     //_uart_p1_5_tx_only_testloop();
 
-    while(1){
+    while(0){
         // led_1234_init_test_once
         led_1234_init_test_loop();
         main_init_test();
