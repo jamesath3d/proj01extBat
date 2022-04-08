@@ -24,7 +24,7 @@ int main(void) {
         main_init_test();
     }
 
-    while(1)
+    while(0)
     {
         _WDT_wait_interrupt_LPM3 ;
         led_11_on();
