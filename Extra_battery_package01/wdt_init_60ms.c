@@ -14,7 +14,7 @@ void wdt_init_60msX(void) {
     WDTCTL = WDT_VLO_60ms ;
     //WDTCTL = WDT_VLO_7ms1 ;
 
-    // #define SELREF0                (0x0010)       /* FLL Reference Clock Select Bit : 0 */
+    // #define SELREF0                (0x0010)       // FLL Reference Clock Select Bit : 0 
     CSCTL3 |= SELREF0               ; // select REFOCLK as the DCO's source.
 
     _clk_to_8192 ; // when VLO_60ms, 55ms WDT, 980us on/off // total 13.5ms,24%
@@ -38,7 +38,7 @@ void wdt_init_60ms(void) {
     WDTCTL = WDT_VLO_60ms ;
     //WDTCTL = WDT_VLO_7ms1 ;
 
-    // #define SELREF0                (0x0010)       /* FLL Reference Clock Select Bit : 0 */
+    // #define SELREF0                (0x0010)       // FLL Reference Clock Select Bit : 0 
     CSCTL3 |= SELREF0               ; // select REFOCLK as the DCO's source.
 
     _aclk_to_32768 ;
