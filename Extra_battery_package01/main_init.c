@@ -29,6 +29,6 @@ void main_init(void){
 
     vturn__init();
 
-    adc__init();
+    //adc__init();
 
 } // main_init

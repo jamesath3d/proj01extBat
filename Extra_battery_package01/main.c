@@ -15,12 +15,13 @@ int main(void) {
 
     main_init();
 
-    // led_1234_init_test_loop();
-    // led_1234_init_test_loop();
 
     //_uart_p1_5_tx_only_testloop();
 
-
+    while(1){
+        led_1234_init_test_loop();
+        main_init_test();
+    }
 
     //Delay_100ms(); // 0.1 second
 #define debug_test_usage 0
@@ -52,7 +53,7 @@ int main(void) {
         led_12_follow_dcdc_status34();
 
         if ( 1 == _mIdx2 ) {
-            adc__loop_once();
+            //adc__loop_once();
         }
 
         //led_2_blink_once();

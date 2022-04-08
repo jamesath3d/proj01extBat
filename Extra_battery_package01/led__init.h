@@ -28,17 +28,24 @@
 #define led_14_PORT_            1
 #define led_14_PIN_             0
 
+// p1.7/led_10
+#define led_10_PORT_            1
+#define led_10_PIN_             7
+
 #define LED_USE_INPUT1_OUTPUT0
 #ifdef LED_USE_INPUT1_OUTPUT0 // off -> input(hi-Z), on -> output_0
 
+#define led_10_TO_0()           { _SetOUT_(led_10); }     // to 0
 #define led_11_TO_0()           { _SetOUT_(led_11); }     // to 0
 #define led_12_TO_0()           { _SetOUT_(led_12); }     // to 0
 #define led_13_TO_0()           { _SetOUT_(led_13); }     // to 0
 #define led_14_TO_0()           { _SetOUT_(led_14); }     // to 0
+#define led_10_init()           { _PinInAsOffInitOut0(led_10); }
 #define led_11_init()           { _PinInAsOffInitOut0(led_11); }
 #define led_12_init()           { _PinInAsOffInitOut0(led_12); }
 #define led_13_init()           { _PinInAsOffInitOut0(led_13); }
 #define led_14_init()           { _PinInAsOffInitOut0(led_14); }
+#define led_10_TO_1()           { _SetIN_(led_10); }     // to 1
 #define led_11_TO_1()           { _SetIN_(led_11); }     // to 1
 #define led_12_TO_1()           { _SetIN_(led_12); }     // to 1
 #define led_13_TO_1()           { _SetIN_(led_13); }     // to 1
@@ -46,14 +53,17 @@
 
 #else // off -> 1 , on -> 0 // output
 
+#define led_10_TO_0()           { _Set0_( led_10 ); }     // to 0
 #define led_11_TO_0()           { _Set0_( led_11 ); }     // to 0
 #define led_12_TO_0()           { _Set0_( led_12 ); }     // to 0
 #define led_13_TO_0()           { _Set0_( led_13 ); }     // to 0
 #define led_14_TO_0()           { _Set0_( led_14 ); }     // to 0
+#define led_10_init()           { _SetOUT_(led_10); }     // }
 #define led_11_init()           { _SetOUT_(led_11); }     // }
 #define led_12_init()           { _SetOUT_(led_12); }     // }
 #define led_13_init()           { _SetOUT_(led_13); }     // }
 #define led_14_init()           { _SetOUT_(led_14); }     // }
+#define led_10_TO_1()           { _Set1_( led_10 ); }     // to 1
 #define led_11_TO_1()           { _Set1_( led_11 ); }     // to 1
 #define led_12_TO_1()           { _Set1_( led_12 ); }     // to 1
 #define led_13_TO_1()           { _Set1_( led_13 ); }     // to 1
@@ -61,16 +71,19 @@
 
 #endif
 
+#define led_10_on()             led_10_TO_0()
 #define led_11_on()             led_11_TO_0()
 #define led_12_on()             led_12_TO_0()
 #define led_13_on()             led_13_TO_0()
 #define led_14_on()             led_14_TO_0()
 
+#define led_10_off()            led_10_TO_1()
 #define led_11_off()            led_11_TO_1()
 #define led_12_off()            led_12_TO_1()
 #define led_13_off()            led_13_TO_1()
 #define led_14_off()            led_14_TO_1()
 
+#define led_10_read()           _READbit_(led_10)
 #define led_11_read()           _READbit_(led_11)
 #define led_12_read()           _READbit_(led_12)
 #define led_13_read()           _READbit_(led_13)
