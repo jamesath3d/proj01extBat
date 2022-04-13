@@ -21,7 +21,7 @@ void main_init_test2(void){
 
 void main_init(void){
 
-    wdt_interrupt_gap_60ms_at_1Mhz_main_clk();
+    _wdt_timer_gap_60ms_at_1Mhz_main_clk();
 
     _gpio_init();
 

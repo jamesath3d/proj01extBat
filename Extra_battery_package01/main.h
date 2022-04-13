@@ -12,5 +12,8 @@
 #include "vturn__init.h"
 #include "interupt_wdt.h"
 
+void main_init_test1(void);
+void main_init_test2(void);
+void main_init_test3(void);
 
 #endif

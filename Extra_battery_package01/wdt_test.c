@@ -5,7 +5,7 @@
 static uint8_t _wdt_cnt01 = 0 ;
 void wdt_test(void) {
 
-    wdt_init_60ms();
+    _wdt_timer_gap_60ms_at_1Mhz_main_clk();
 
     //P1DIR    |= BIT6 ;
     led_1234_init_all_off() ;

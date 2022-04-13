@@ -33,7 +33,7 @@ int main(void) {
     while(0){
         // led_1234_init_test_once
         led_1234_init_test_loop();
-        main_init_test();
+        main_init_test1();
     }
 
     while(0)
