@@ -17,6 +17,18 @@ int main(void) {
 
 
     //_uart_p1_5_tx_only_testloop();
+    while(1){
+        if ( 0 == _mIdx2 -- ) {
+            _mIdx2 = 32 ;
+            _UART_P1_5_TX_PUT_CH(_Port(cMosG3) + '0');
+            _UART_P1_5_TX_PUT_CH(' ');
+            _UART_P1_5_TX_PUT_CH(_Pin(cMosG3) + '0');
+            _UART_P1_5_TX_PUT_CH(' ');
+            _uart_p1_5_tx_only_put_u8( _mIdx ++ );
+            _uart_p1_5_tx_only_put_rn();
+        }
+        _WDT_wait_interrupt_LPM3 ;
+    }
 
     while(0){
         // led_1234_init_test_once

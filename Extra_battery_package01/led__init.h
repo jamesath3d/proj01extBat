@@ -2,6 +2,8 @@
 #ifndef _LED__INIT_H
 #define _LED__INIT_H
 
+#define cMosG3 2,3
+
 //// p1.6/led_11
 //#define led_11_PORT_            1
 //#define led_11_PIN_             6
