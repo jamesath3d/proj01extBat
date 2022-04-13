@@ -31,11 +31,11 @@ void main_init(void){
 
     key_1_init();
 
-    dcdc__init();
+    dcdc_state__init();
 
     vturn__init();
 
-    //adc__init();
+    adc__init();
 
     //main_init_test2();
 

@@ -62,7 +62,7 @@ int main(void) {
         led_12_follow_dcdc_status34();
 
         if ( 1 == _mIdx2 ) {
-            //adc__loop_once();
+            adc__loop_once();
         }
 
         //led_2_blink_once();

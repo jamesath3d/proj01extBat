@@ -13,7 +13,7 @@
 #define dcdc_state4in_read()    _READbit_(dcdc_state4) 
 
 
-void dcdc__init(void) ;
+void dcdc_state__init(void) ;
 
 //        dcdc_state3_read
 

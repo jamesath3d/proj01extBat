@@ -10,7 +10,9 @@ void adc__init(void) {
 
     ADCCTL0 &= ~( ADCENC | ADCON | ADCSC ); // Disable ADC conversions , before all othere ADC registers write
 
-    SYSCFG2 |= ADCPCTL1 ; // ADC input A1 pin select 
+    //SYSCFG2 |= ADCPCTL1 ; // ADC input A1 pin select 
+    //SYSCFG2 |= ADCPCTL7 ; // ADC input A7 pin select 
+    SYSCFG2 |= ADCPCTL5 ; // ADC input A5 pin select 
     // PxSEL0 = 0 ; // msp430fr2433 has no PxSEL0
     // ADC10AE0 // msp430fr2433 has no ADC10AE0
 
@@ -24,7 +26,10 @@ void adc__init(void) {
 
     /* ADCMCTL0 Control Bits */ 
     /* ADCINCH0 : ADC Input Channel Select Bit 0 */
-    ADCMCTL0 |= ADCINCH_1 // select A1 : 'b0001 --> A1 
+    // ADCMCTL0 : bit 3-0 : channel select
+    //ADCMCTL0 |= ADCINCH_1 // select A1 : 'b0001 --> A1 
+    //ADCMCTL0 |= ADCINCH_7 // select A7 : 'b0111 --> A7 
+    ADCMCTL0 |= ADCINCH_5 // select A7 : 'b0101 --> A5 
         /* ADCSREF0 : ADC Select Reference Bit 0 */
         | ADCSREF_0 ; // AVCC + AVSS , v3.3 + v0
 
