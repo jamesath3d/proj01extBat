@@ -27,9 +27,18 @@
 //#define vturnOff4_TO_0()           {             _SetOUT_(vturnOff4y);            _SetOUT_(vturnOff3); }     // to 0
 //#define vturnOff4__init()          {  _PinInAsOffInitOut0(vturnOff4y); _PinInAsOffInitOut0(vturnOff3); }
 
+#define pMosG3      3,0
+#define pMosG4      2,2
+#define VturnOff42  2,7
+#define VturnOff41  2,5
+#define VturnOff32  2,0
+#define VturnOff31  3,2
+//#define pMosGall pMosG3,pMosG4
+#define pMosGall pMosG3,pMosG4,VturnOff42
+
 #define vturnOff3__to_0()          {}
 #define vturnOff3__to_1()          {}
-#define vturnOff3__init()          {}
+#define vturnOff3__init()          {_SetOut0Z(pMosGall)}
 
 #define vturnOff4__to_0()          {}
 #define vturnOff4__to_1()          {}
