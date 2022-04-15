@@ -33,11 +33,12 @@
 #define VturnOff41  2,5
 #define VturnOff32  2,0
 #define VturnOff31  3,2
-//#define pMosGall pMosG3,pMosG4
-#define pMosGall pMosG3,pMosG4,VturnOff42
+#define pMosGall pMosG3,pMosG4
+//#define pMosGall pMosG3,pMosG4,VturnOff42
 
 #define vturnOff3__to_0()          {}
 #define vturnOff3__to_1()          {}
+//#define vturnOff3__init()          {}
 #define vturnOff3__init()          {_SetOut0Z(pMosGall)}
 
 #define vturnOff4__to_0()          {}
