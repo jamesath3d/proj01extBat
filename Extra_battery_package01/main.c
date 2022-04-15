@@ -14,14 +14,18 @@ int main(void) {
     // wdt_test();
 
     main_init();
+    // led_1234_init
+    // led_1234_init_all_off();
     // vturnOff3__init
     // _SetOut0Z
+    // #define vturnOff3__init()          {_SetOut0Z(pMosGall)}
 
 
     //_uart_p1_5_tx_only_testloop();
-    while(1){
+    while(0){
         if ( 0 == _mIdx2 -- ) {
             _mIdx2 = 32 ;
+            #define cMosG3 2,3
             _UART_P1_5_TX_PUT_CH(_Port(cMosG3) + '0');
             _UART_P1_5_TX_PUT_CH(' ');
             _UART_P1_5_TX_PUT_CH(_Pin(cMosG3) + '0');

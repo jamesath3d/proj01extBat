@@ -2,7 +2,6 @@
 #ifndef _LED__INIT_H
 #define _LED__INIT_H
 
-#define cMosG3 2,3
 
 //// p1.6/led_11
 //#define led_11_PORT_            1
@@ -91,12 +90,24 @@
 #define led_13_read()           _READbit_(led_13)
 #define led_14_read()           _READbit_(led_14)
 
+#ifdef XXXXYYYY1
 #define led_1234_init()  { \
     led_10_init(); \
     led_11_init(); \
     led_12_init(); \
     led_13_init(); \
     led_14_init(); }
+#endif // XXXXYYYY1
+
+//#define vturnOff3__init()          {_SetOut0Z(pMosGall)}
+#define led10   1,7
+#define led14   1,0
+#define led13   1,1
+#define led12   1,2
+#define led11   1,3
+#define ledAll  led10,led11,led12,led13,led14
+
+#define led_1234_init()  { _SetOut0Z( pMosGall ); }
 
 void led_1234_init_all_off(void);
 void led_1234_init_test_loop(void);

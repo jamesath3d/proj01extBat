@@ -38,8 +38,8 @@
 
 #define vturnOff3__to_0()          {}
 #define vturnOff3__to_1()          {}
-//#define vturnOff3__init()          {}
-#define vturnOff3__init()          {_SetOut0Z(pMosGall)}
+#define vturnOff3__init()          {}
+//#define vturnOff3__init()          {_SetOut0Z(pMosGall)}
 
 #define vturnOff4__to_0()          {}
 #define vturnOff4__to_1()          {}
