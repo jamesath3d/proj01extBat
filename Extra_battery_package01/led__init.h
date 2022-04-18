@@ -91,7 +91,7 @@
 #define led_14_read()           _READbit_(led_14)
 
 #ifdef XXXXYYYY1
-#define led_1234_init()  { \
+#define led_1234_initXXYY()  { \
     led_10_init(); \
     led_11_init(); \
     led_12_init(); \
