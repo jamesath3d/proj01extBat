@@ -33,17 +33,23 @@
 #define VturnOff41  2,5
 #define VturnOff32  2,0
 #define VturnOff31  3,2
+
 #define pMosGall pMosG3,pMosG4
+#define vTurn3 VturnOff32
+#define vTurn4 VturnOff42
 //#define pMosGall pMosG3,pMosG4,VturnOff42
 
-#define vturnOff3__to_0()          {}
-#define vturnOff3__to_1()          {}
-#define vturnOff3__init()          {}
+//        _Y1( LED_on,    led11 );
+//        _Y1( LED_off,   led11 );
+
+#define vturnOff3__to_0()          { _Y1( _Set0X,       vTurn3  ); }
+#define vturnOff3__to_1()          { _Y1( _Set1X,       vTurn3  ); }
+#define vturnOff3__init()          { _Y1( _SetOutX0,    vTurn3  ); }
 //#define vturnOff3__init()          {_SetOut0Z(pMosGall)}
 
-#define vturnOff4__to_0()          {}
-#define vturnOff4__to_1()          {}
-#define vturnOff4__init()          {}
+#define vturnOff4__to_0()          { _Y1( _Set0X,       vTurn4  ); }
+#define vturnOff4__to_1()          { _Y1( _Set1X,       vTurn4  ); }
+#define vturnOff4__init()          { _Y1( _SetOutX0,    vTurn4  ); }
 
 void vturn__init(void);
 void vturn_34_follow_key1_once(void);

@@ -39,6 +39,7 @@ void led_12_follow_dcdc_status34(void){
             //_Y1( LED_off,   led11 );
         } else {
             _Y1( LED_on,    led11 );
+            __delay_cycles(200); // 10us @ mclk 1Mhz
             _Y1( LED_off,   led11 );
         }
 
@@ -46,6 +47,7 @@ void led_12_follow_dcdc_status34(void){
             //_Y1( LED_off,   led12 );
         } else {
             _Y1( LED_on,   led12 );
+            __delay_cycles(200); // 10us @ mclk 1Mhz
             _Y1( LED_off,   led12 );
         }
 

@@ -78,6 +78,9 @@ int main(void) {
 
         if ( 1 ) {
             vturn_34_follow_key1_once();
+        }
+
+        if ( 1 ) {
             led_34_follow_key1_t1_once();
             led_12_follow_dcdc_status34();
         }
