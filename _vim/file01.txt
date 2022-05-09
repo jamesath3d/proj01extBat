@@ -36,6 +36,8 @@ Extra_battery_package01/wdt_test.c
 ../../../../../ti/ti/ccs1040/ccs/ccs_base/msp430/include_gcc/msp430fr2433.h
 ../../../../../ti/ti/ccs1040/ccs/ccs_base/msp430/include_gcc/msp430fr2xx_4xxgeneric.h
 ../../../../../ti/ti/ccs1040/ccs/ccs_base/msp430/include_gcc/msp430.h
+../workspace_v10/BlinkLED_MSP430FR2433_03/_adc_init.c
+../workspace_v10/BlinkLED_MSP430FR2433_03/_adc_init.h
 ../workspace_v10/BlinkLED_MSP430FR2433_03/_bit_set.c
 ../workspace_v10/BlinkLED_MSP430FR2433_03/_bit_set.h
 ../workspace_v10/BlinkLED_MSP430FR2433_03/_cable_tester.h
