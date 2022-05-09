@@ -106,8 +106,21 @@
 #define led12   1,2
 #define led11   1,3
 #define ledAll  led10,led11,led12,led13,led14
+#define led222  led10, led14 
 
-#define led_1234_init()  { _SetOut0Z( pMosGall ); }
+//#define led_1234_init()  { _SetOut0Z( pMosGall ); }
+//#define led_1234_init()  { _XX25( _PinitAsInOffOut0Y , _XX(ledAll) ); }
+//#define led_1234_init()  { _XX25( _PinitAsInOffOut0Y , led10,led11,led12,led13,led14 ); }
+//#define led_1234_init()  _XX21( _PinitAsInOffOut0Y , 1,7 )
+//#define led_1234_init()  _XX21( _PinitAsInOffOut0Y , led10 ) ## err
+//#define led_1234_init()  _XX21( _PinitAsInOffOut0Y , _XX(led10) )
+//#define led_1234_init()  _PinitAsInOffOut0Y ( 1,7 )
+//#define led_1234_init()  _PinitAsInOffOut0X( led10 )
+//#define led_1234_init()  _PinitAsInOffOut0X( 1,7 )
+//#define led_1234_init()  _X2( _PinitAsInOffOut0X, 1,7 , 1,0 )
+//#define led_1234_init()  _Y2( _PinitAsInOffOut0X, 1,7 , 1,0 )
+//#define led_1234_init()  _Y2( _PinitAsInOffOut0X, led10, led14 )
+#define led_1234_init()  _Y2( _PinitAsInOffOut0X, led222 )
 
 void led_1234_init_all_off(void);
 void led_1234_init_test_loop(void);
