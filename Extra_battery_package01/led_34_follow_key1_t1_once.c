@@ -3,12 +3,14 @@
 
 extern uint8_t _key_1_value_t1 ;
 
+//        _Y1( LED_on,    led11 );
+//        _Y1( LED_off,   led11 );
 void led_34_follow_key1_onceX(void){
 
     if ( _key_1_value_t1 ) {
-        led_14_TO_0();
+        _Y1( LED_off,   led14 );
     } else {
-        led_14_TO_1();
+        _Y1( LED_on,   led14 );
     }
 
 } // led_34_follow_key1_onceX
@@ -24,13 +26,13 @@ void led_34_follow_key1_t1_once(void){
     //if ( 1 == 1 ) {
 
         if ( _key_1_value_t1 ) {
-            led_14_on();
+            _Y1( LED_on,    led14 );
             __delay_cycles(10); // 10us @ mclk 1Mhz
-            led_14_off();
+            _Y1( LED_off,   led14 );
         } else {
-            led_13_on();
+            _Y1( LED_on,    led13 );
             __delay_cycles(10); // 10us @ mclk 1Mhz
-            led_13_off();
+            _Y1( LED_off,   led13 );
         }
     }
 

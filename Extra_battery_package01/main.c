@@ -25,7 +25,7 @@ int main(void) {
     while(0){
         if ( 0 == _mIdx2 -- ) {
             _mIdx2 = 32 ;
-            #define cMosG3 2,3
+#define cMosG3 2,3
             _UART_P1_5_TX_PUT_CH(_Port(cMosG3) + '0');
             _UART_P1_5_TX_PUT_CH(' ');
             _UART_P1_5_TX_PUT_CH(_Pin(cMosG3) + '0');
@@ -45,9 +45,10 @@ int main(void) {
     while(0)
     {
         _WDT_wait_interrupt_LPM3 ;
-        led_11_on();
+        //led_11_on();
+        _Y1( LED_on,    led11 );
         _WDT_wait_interrupt_LPM3 ;
-        led_11_off();
+        _Y1( LED_off,   led11 );
     }
 
     //Delay_100ms(); // 0.1 second
@@ -61,7 +62,7 @@ int main(void) {
             _uart_p1_5_tx_only_put_rn();
         }
         //if ( debug_test_usage ) led_13_on();
-        
+
         _WDT_wait_interrupt_LPM3 ;
 
         //if ( debug_test_usage ) led_13_off();
@@ -74,10 +75,12 @@ int main(void) {
 
         //key_1_blink_once_on_led3();
         key_1_once_toggle_value_t1();
-        vturn_34_follow_key1_once();
-        led_34_follow_key1_t1_once();
 
-        led_12_follow_dcdc_status34();
+        if ( 1 ) {
+            vturn_34_follow_key1_once();
+            led_34_follow_key1_t1_once();
+            led_12_follow_dcdc_status34();
+        }
 
         if ( 1 == _mIdx2 ) {
             adc__loop_once();
