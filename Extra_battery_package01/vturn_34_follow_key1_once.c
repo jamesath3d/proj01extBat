@@ -5,10 +5,10 @@ extern uint8_t _key_1_value_t1 ;
 
 void vturn_34_follow_key1_once(void){
 
-    if ( _key_1_value_t1 ) {
+    if ( _key_1_value_t1 ) { // 4
         vturnOff3__to_0();
         vturnOff4__to_1();
-    } else {
+    } else { //                 3
         vturnOff3__to_1();
         vturnOff4__to_0();
     }

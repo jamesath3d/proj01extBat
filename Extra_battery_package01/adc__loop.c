@@ -1,10 +1,10 @@
 
 #include "main.h"
 
-static uint8_t adc_i8 = 0 ;
-static uint32_t adc_i16 = 0 ;
-static uint32_t adc_i32 = 0 ;
 void adc__loop_once(void) {
+    static uint8_t adc_i8 = 0 ;
+    static uint32_t adc_i16 = 0 ;
+    static uint32_t adc_i32 = 0 ;
     // ADCCTL0 = ADCSC                  /* ADC Start Conversion */
     //           ADCENC                 /* ADC Enable Conversion */
     //           ADCON                  /* ADC On/enable */
