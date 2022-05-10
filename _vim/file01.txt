@@ -3,6 +3,8 @@ Makefile.env
 Extra_battery_package01/adc__init.c
 Extra_battery_package01/adc__init.h
 Extra_battery_package01/adc__loop.c
+Extra_battery_package01/battery_voltage_calc.c
+Extra_battery_package01/battery_voltage_calc.h
 Extra_battery_package01/dcdc__init.c
 Extra_battery_package01/dcdc__init.h
 Extra_battery_package01/interupt_timer.c

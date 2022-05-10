@@ -11,6 +11,7 @@
 #include "dcdc__init.h"
 #include "vturn__init.h"
 #include "interupt_wdt.h"
+#include "battery_voltage_calc.h"
 
 void main_init_test1(void);
 void main_init_test2(void);
