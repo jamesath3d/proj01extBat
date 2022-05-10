@@ -16,6 +16,7 @@ int main(void) {
     main_init();
     // led_1234_init
     // led_1234_init_all_off();
+    // vturn__init();
     // vturnOff3__init
     // _SetOut0Z
     // #define vturnOff3__init()          {_SetOut0Z(pMosGall)}
@@ -51,6 +52,9 @@ int main(void) {
         _Y1( LED_off,   led11 );
     }
 
+    vturn_on_3(); xHost3_on();
+    //vturn_on_4(); xHost4_on();
+
     //Delay_100ms(); // 0.1 second
 #define debug_test_usage 0
     while(1)
@@ -67,7 +71,7 @@ int main(void) {
 
         //if ( debug_test_usage ) led_13_off();
         //_UART_P1_5_TX_PUT_CH_5 ;
-        if ( 3 == _mIdx2 ) {
+        if ( 1 && ( 3 == _mIdx2 )) {
             _uart_p1_5_tx_only_put_hex_u8( _mIdx++ ) ;
         }
 
@@ -76,7 +80,7 @@ int main(void) {
         //key_1_blink_once_on_led3();
         key_1_once_toggle_value_t1();
 
-        if ( 1 ) {
+        if ( 0 && ( 2 == _mIdx2 )) {
             vturn_34_follow_key1_once();
         }
 
