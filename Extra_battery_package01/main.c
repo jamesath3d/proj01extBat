@@ -109,9 +109,12 @@ int main(void) {
             if ( 0 != _BatteryVoltageMV ) {
                 _led_calced_by_adc = battery_mv_calc_led( _BatteryVoltageMV );
 
-                _UART_P1_5_TX_PUT_CH('[');
-                _uart_p1_5_tx_only_put_u8d( _led_calced_by_adc ) ;
-                _UART_P1_5_TX_PUT_CH(']');
+                if ( 1 ) {
+                    _UART_P1_5_TX_PUT_CH(' ');
+                    _UART_P1_5_TX_PUT_CH('[');
+                    _uart_p1_5_tx_only_put_u8d( _led_calced_by_adc ) ;
+                    _UART_P1_5_TX_PUT_CH(']');
+                }
             }
 
             if ( 0 != _BatteryVoltageMV ) {
