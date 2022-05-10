@@ -1,10 +1,15 @@
 
 #include "main.h"
 
-void adc__loop_once(void) {
-    static uint8_t adc_i8 = 0 ;
-    static uint32_t adc_i16 = 0 ;
-    static uint32_t adc_i32 = 0 ;
+static uint8_t adc_i8 = 0 ;
+static uint32_t adc_i16 = 0 ;
+static uint32_t adc_i32 ;
+
+#define DebugPRINT if(0) 
+//#define DebugPRINT if(1) 
+
+uint32_t adc__loop_once(void) {
+    adc_i32 = 0 ;
     // ADCCTL0 = ADCSC                  /* ADC Start Conversion */
     //           ADCENC                 /* ADC Enable Conversion */
     //           ADCON                  /* ADC On/enable */
@@ -37,15 +42,18 @@ void adc__loop_once(void) {
     if ( 1 && ( ADCIFG & ADCIFG0 )) {
         if ( 1 ) {
             adc_i16 = ADCMEM0 ; 
-            _uart_p1_5_tx_only_put_uint16( adc_i16 ) ; 
+            DebugPRINT  _uart_p1_5_tx_only_put_uint16( adc_i16 ) ; 
             //adc_i32 = 3300 * adc_i16 / 0x3FF ; 
             adc_i32 = 3300 * adc_i16 / 0x400 ; 
 
-            _uart_p1_5_tx_only_put_uint16d( adc_i32 ) ; 
+            DebugPRINT  _uart_p1_5_tx_only_put_uint16d( adc_i32 ) ;  
             //_uart_p1_5_tx_only_put_uint16d( adc_i32 * 502/100) ; 
-            _uart_p1_5_tx_only_put_uint16d( adc_i32 * 12/2) ; 
+            //adc_i32 = adc_i32 * 12/2 ; 
+            adc_i32 *= 6 ;
+            DebugPRINT _uart_p1_5_tx_only_put_uint32d( adc_i32 ) ; 
         } else {
-            _uart_p1_5_tx_only_put_uint16( ADCMEM0 ) ; 
+            DebugPRINT _uart_p1_5_tx_only_put_uint16( ADCMEM0 ) ; 
+            adc_i32 = ADCMEM0 ; 
         }
 
     }
@@ -55,6 +63,7 @@ void adc__loop_once(void) {
        ) { 
         ADCCTL0 |= ADCSC; // start a NEW convert
     }
+    return adc_i32 ;
 } // adc__loop_once
 
 

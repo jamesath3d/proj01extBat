@@ -3,8 +3,13 @@
 
 
 
-static uint8_t _mIdx ;
-static uint8_t _mIdx2 ;
+static uint8_t  _mIdx ;
+static uint8_t  _mIdx2 ;
+
+#define         _tCnt2_default      45
+static uint8_t  _tCnt2_button_pressed = _tCnt2_default;
+static uint32_t  _BatteryVoltageMV ;
+
 int main(void) {
 
 
@@ -90,7 +95,10 @@ int main(void) {
         }
 
         if ( 1 == _mIdx2 ) {
-            adc__loop_once();
+            _BatteryVoltageMV = adc__loop_once() ;
+            if ( 0 != _BatteryVoltageMV ) {
+                _uart_p1_5_tx_only_put_uint16d( _BatteryVoltageMV ) ;
+            }
         }
 
         //led_2_blink_once();
