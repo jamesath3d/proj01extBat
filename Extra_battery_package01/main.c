@@ -107,7 +107,8 @@ int main(void) {
         if ( 1 == _mIdx2 ) {
             _BatteryVoltageMV = adc__loop_once() ;
             if ( 0 != _BatteryVoltageMV ) {
-                _led_calced_by_adc = battery_mv_calc_led( _BatteryVoltageMV );
+                _led_calced_by_adc = 
+                    battery_mv_calc_led( _BatteryVoltageMV );
 
                 if ( 1 ) {
                     _UART_P1_5_TX_PUT_CH(' ');
