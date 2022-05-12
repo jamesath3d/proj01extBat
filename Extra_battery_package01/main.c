@@ -11,8 +11,8 @@ static uint8_t  _mIdx2 ;
 static uint32_t  _BatteryVoltageMV ;
 static uint8_t  _led_calced_by_adc ;
 static uint8_t  _led_flash_cnt ;
-#define  _BatteryChangeCnt_default 100000
-#define  _BatteryChangeCnt_test     80   
+#define  _BatteryChangeCnt_default  64
+#define  _BatteryChangeCnt_test     32   
 static uint32_t  _BatteryChangeArr[_BatteryChangeCnt_test] ;
 static uint32_t  _BatteryChangeCnt = _BatteryChangeCnt_default ;
 
@@ -68,9 +68,19 @@ int main(void) {
 
     //Delay_100ms(); // 0.1 second
 #define debug_test_usage 0
-    main_init_test3();
-    while(1)
+    //main_init_test3();
+    while(0)
     {
+        for ( int16_t __ii = 16 ; __ii >= 1 ; __ii -- ) {
+            _WDT_wait_interrupt_LPM3 ;
+        }
+        _Y1( LED_on,   led14 ); 
+        _WDT_wait_interrupt_LPM3 ;
+        _Y1( LED_off,   led14 ); 
+
+    }
+    while ( 1) {
+        _WDT_wait_interrupt_LPM3 ;
         if ( 0 == _BatteryChangeCnt ) {
             _BatteryChangeCnt = _BatteryChangeCnt_default ;
             _uart_p1_5_tx_only_put_str( "======================\r\n\r\n\r\n" ) ;
