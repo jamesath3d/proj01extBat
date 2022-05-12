@@ -11,7 +11,7 @@ static uint8_t  _mIdx2 ;
 static uint32_t  _BatteryVoltageMV ;
 static uint8_t  _led_calced_by_adc ;
 static uint8_t  _led_flash_cnt ;
-#define  _BatteryChangeCnt_default 10000
+#define  _BatteryChangeCnt_default 100000
 #define  _BatteryChangeCnt_test     80   
 static uint32_t  _BatteryChangeArr[_BatteryChangeCnt_test] ;
 static uint32_t  _BatteryChangeCnt = _BatteryChangeCnt_default ;
