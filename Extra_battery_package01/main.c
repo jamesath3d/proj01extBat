@@ -11,6 +11,10 @@ static uint8_t  _button_pressed_cnt = _button_pressed_cnt_default;
 static uint32_t  _BatteryVoltageMV ;
 static uint8_t  _led_calced_by_adc ;
 static uint8_t  _led_flash_cnt ;
+#define  _BatteryChangeCnt_default 800 
+#define  _BatteryChangeCnt_test     80   
+static uint32_t  _BatteryChangeArr[_BatteryChangeCnt_test] ;
+static uint32_t  _BatteryChangeCnt = _BatteryChangeCnt_default ;
 
 int main(void) {
 
@@ -38,7 +42,7 @@ int main(void) {
             _UART_P1_5_TX_PUT_CH(' ');
             _UART_P1_5_TX_PUT_CH(_Pin(cMosG3) + '0');
             _UART_P1_5_TX_PUT_CH(' ');
-            _uart_p1_5_tx_only_put_u8( _mIdx ++ );
+            _uart_p1_5_tx_only_put_u8d( _mIdx ++ );
             _uart_p1_5_tx_only_put_rn();
         }
         _WDT_wait_interrupt_LPM3 ;
@@ -66,6 +70,11 @@ int main(void) {
 #define debug_test_usage 0
     while(1)
     {
+        if ( 0 == _BatteryChangeCnt_default ) {
+            _BatteryChangeCnt = _BatteryChangeCnt_default ;
+        }
+        _BatteryChangeCnt -- ;
+
         //led_1234_init_test_once();
         //_UART_P1_5_TX_PUT_CH_A ; // _UART_P1_5_TX_PUT_CH_A ; _UART_P1_5_TX_PUT_CH_A ;
         if ( 0 == _mIdx2 -- ) {
@@ -104,7 +113,7 @@ int main(void) {
             }
         }
 
-        if ( 1 == _mIdx2 ) {
+        if ( 0 &&( 1 == _mIdx2 )) {
             _BatteryVoltageMV = adc__loop_once() ;
             if ( 0 != _BatteryVoltageMV ) {
                 _led_calced_by_adc = 
@@ -120,6 +129,24 @@ int main(void) {
 
             if ( 0 != _BatteryVoltageMV ) {
                 _uart_p1_5_tx_only_put_uint16d( _BatteryVoltageMV ) ;
+            }
+        }
+        if ( 1 ) {
+            if ( _BatteryChangeCnt < _BatteryChangeCnt_default ) {
+                xCharge3_off(); xCharge4_off();
+                _BatteryVoltageMV = adc__loop_once() ;
+                _BatteryChangeArr[_BatteryChangeCnt] = _BatteryVoltageMV ;
+                if ( 0 == _BatteryChangeCnt ) {
+                    for ( int16_t __ii = _BatteryChangeCnt_default - 1 ; __ii >= 0 ; __ii -- ) {
+                        _UART_P1_5_TX_PUT_CH(' ');
+                        _UART_P1_5_TX_PUT_CH('<');
+                        _uart_p1_5_tx_only_put_uint16d(  _BatteryChangeArr[ __ii ]  ) ;
+                        _UART_P1_5_TX_PUT_CH('>');
+                    }
+                } // if ( 0 == _BatteryChangeCnt ) 
+            }
+            else {
+                xCharge3_on(); xCharge4_off();
             }
         }
 
