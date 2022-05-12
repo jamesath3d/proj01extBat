@@ -68,6 +68,7 @@ int main(void) {
 
     //Delay_100ms(); // 0.1 second
 #define debug_test_usage 0
+    main_init_test3();
     while(1)
     {
         if ( 0 == _BatteryChangeCnt ) {

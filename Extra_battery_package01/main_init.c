@@ -19,9 +19,22 @@ void main_init_test2(void){
     }
 } // main_init_test2
 
+void main_init_test3(void){
+    while(1)
+    {
+        for ( uint8_t ii=16 ; ii >=1 ; ii -- ) {
+            _WDT_wait_interrupt_LPM3 ;
+        }
+        led_1234_init_test_once_only();
+
+    }
+} // main_init_test3
+
 void main_init(void){
 
     _wdt_timer_gap_60ms_at_1Mhz_main_clk();
+    //main_init_test2();
+    //main_init_test3();
 
     _gpio_init();
 
@@ -38,5 +51,6 @@ void main_init(void){
     adc__init();
 
     //main_init_test2();
+    //main_init_test3();
 
 } // main_init
