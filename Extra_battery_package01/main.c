@@ -16,6 +16,7 @@ static uint8_t  _led_flash_cnt ;
 static uint32_t  _BatteryChangeArr[_BatteryChangeCnt_test] ;
 static uint32_t  _BatteryChangeCnt = _BatteryChangeCnt_default ;
 
+#ifdef disable_main_test
 void mtest01_test_uart(void){
     while(1){
         if ( 0 == _mIdx2 -- ) {
@@ -138,6 +139,7 @@ void mtest07(void){
         }
     }
 } // mtest07
+#endif // disable_main_test
 
 void mtest99(void){
     vturn_on_3(); xHost3_on();
@@ -243,19 +245,20 @@ int main(void) {
 
 
     //_uart_p1_5_tx_only_testloop();
+    _Y1( LED_on,    led14 );
 
-    /*
-    if ( 0 ) mtest01_test_uart();
-    if ( 0 ) mtest02_test_led_test_loop();
+#ifdef xxx2
+    if ( 1 ) mtest01_test_uart();
+    if ( 1 ) mtest02_test_led_test_loop();
     if ( 0 ) mtest03_test_wdt_as_timer_gap();
     if ( 0 ) mtest04();
     if ( 0 ) mtest05();
     if ( 0 ) mtest06();
     if ( 0 ) mtest07();
+#endif // xxx2
 
     if ( 0 ) mtest99();
-    */
 
-    if ( 1 ) mtest03_test_wdt_as_timer_gap();
+    //if ( 1 ) mtest03_test_wdt_as_timer_gap();
     mtest100_led_by_delay();
 }
