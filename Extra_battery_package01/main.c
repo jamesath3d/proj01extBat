@@ -69,7 +69,7 @@ int main(void) {
     //Delay_100ms(); // 0.1 second
 #define debug_test_usage 0
     //main_init_test3();
-    while(0)
+    while(1)
     {
         for ( int16_t __ii = 16 ; __ii >= 1 ; __ii -- ) {
             _WDT_wait_interrupt_LPM3 ;
@@ -83,12 +83,38 @@ int main(void) {
         _WDT_wait_interrupt_LPM3 ;
         if ( 0 == _BatteryChangeCnt ) {
             _BatteryChangeCnt = _BatteryChangeCnt_default ;
+            //_uart_p1_5_tx_only_put_str( "======================\r\n\r\n\r\n" ) ;
+        }
+        _BatteryChangeCnt -- ;
+        if ( 0 ) {
+            _uart_p1_5_tx_only_put_uint32( _BatteryChangeCnt );
+            _uart_p1_5_tx_only_put_rn();
+        }
+        if ( 1 ) {
+            if ( _BatteryChangeCnt < _BatteryChangeCnt_default ) {
+                _Y1( LED_on,   led14 ); 
+            } else {
+                _Y1( LED_off,   led14 ); 
+            }
+        }
+    }
+    while ( 1) {
+        _WDT_wait_interrupt_LPM3 ;
+        if ( 0 == _BatteryChangeCnt ) {
+            _BatteryChangeCnt = _BatteryChangeCnt_default ;
             _uart_p1_5_tx_only_put_str( "======================\r\n\r\n\r\n" ) ;
         }
         _BatteryChangeCnt -- ;
         if ( 0 ) {
             _uart_p1_5_tx_only_put_uint32( _BatteryChangeCnt );
             _uart_p1_5_tx_only_put_rn();
+        }
+        if ( 1 ) {
+            if ( _BatteryChangeCnt < _BatteryChangeCnt_default ) {
+                _Y1( LED_on,   led14 ); 
+            } else {
+                _Y1( LED_off,   led14 ); 
+            }
         }
         if ( 0 ) {
             if ( _BatteryChangeCnt < _BatteryChangeCnt_default ) {
