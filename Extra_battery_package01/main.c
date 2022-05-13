@@ -16,25 +16,8 @@ static uint8_t  _led_flash_cnt ;
 static uint32_t  _BatteryChangeArr[_BatteryChangeCnt_test] ;
 static uint32_t  _BatteryChangeCnt = _BatteryChangeCnt_default ;
 
-int main(void) {
-
-
-    //uint8_t __ii ;
-    //uint8_t __rt ;
-
-    // wdt_test();
-
-    main_init();
-    // led_1234_init
-    // led_1234_init_all_off();
-    // vturn__init();
-    // vturnOff3__init
-    // _SetOut0Z
-    // #define vturnOff3__init()          {_SetOut0Z(pMosGall)}
-
-
-    //_uart_p1_5_tx_only_testloop();
-    while(0){
+void mtest01_test_uart(void){
+    while(1){
         if ( 0 == _mIdx2 -- ) {
             _mIdx2 = 32 ;
 #define cMosG3 2,3
@@ -47,14 +30,16 @@ int main(void) {
         }
         _WDT_wait_interrupt_LPM3 ;
     }
-
-    while(0){
+} // mtest01_test_uart
+void mtest02_test_led_test_loop(void){
+    while(1){
         // led_1234_init_test_once
         led_1234_init_test_loop();
         main_init_test1();
     }
-
-    while(0)
+} // mtest02_test_led_test_loop
+void mtest03_test_wdt_as_timer_gap(void){
+    while(1)
     {
         _WDT_wait_interrupt_LPM3 ;
         //led_11_on();
@@ -62,14 +47,9 @@ int main(void) {
         _WDT_wait_interrupt_LPM3 ;
         _Y1( LED_off,   led11 );
     }
-
-    vturn_on_3(); xHost3_on();
-    //vturn_on_4(); xHost4_on();
-
-    //Delay_100ms(); // 0.1 second
-#define debug_test_usage 0
-    //main_init_test3();
-    while(1)
+} // mtest03_test_wdt_as_timer_gap
+void mtest04(void){
+    while( 1 )
     {
         for ( int16_t __ii = 16 ; __ii >= 1 ; __ii -- ) {
             _WDT_wait_interrupt_LPM3 ;
@@ -79,25 +59,45 @@ int main(void) {
         _Y1( LED_off,   led14 ); 
 
     }
-    while ( 1) {
+} // mtest04
+void mtest05(void){
+    while( 1 )
+    {
+        _WDT_wait_interrupt_LPM3 ;
+
+        _Y1( LED_on,   led14 ); 
+        //_WDT_wait_interrupt_LPM3 ;
+        _Y1( LED_off,   led14 ); 
+
+    }
+} // mtest05
+void mtest06(void){
+    while ( 1 ) {
         _WDT_wait_interrupt_LPM3 ;
         if ( 0 == _BatteryChangeCnt ) {
             _BatteryChangeCnt = _BatteryChangeCnt_default ;
-            //_uart_p1_5_tx_only_put_str( "======================\r\n\r\n\r\n" ) ;
+            _uart_p1_5_tx_only_put_str( "======================\r\n\r\n\r\n" ) ;
         }
         _BatteryChangeCnt -- ;
-        if ( 0 ) {
-            _uart_p1_5_tx_only_put_uint32( _BatteryChangeCnt );
-            _uart_p1_5_tx_only_put_rn();
-        }
-        if ( 1 ) {
-            if ( _BatteryChangeCnt < _BatteryChangeCnt_default ) {
-                _Y1( LED_on,   led14 ); 
-            } else {
-                _Y1( LED_off,   led14 ); 
-            }
-        }
+//         if ( 0 ) {
+//             _uart_p1_5_tx_only_put_uint32( _BatteryChangeCnt );
+//             _uart_p1_5_tx_only_put_rn();
+//         }
+//         if ( 0 ) {
+//             if ( _BatteryChangeCnt < _BatteryChangeCnt_test ) {
+//                 _Y1( LED_on,   led14 ); 
+//             } else {
+//                 _Y1( LED_off,   led14 ); 
+//             }
+//         }
+        //if ( _BatteryChangeCnt & 1 ) {
+            _Y1( LED_on,   led14 ); 
+        //} else {
+//            _Y1( LED_off,   led14 ); 
+ //       }
     }
+} // mtest06
+void mtest07(void){
     while ( 1) {
         _WDT_wait_interrupt_LPM3 ;
         if ( 0 == _BatteryChangeCnt ) {
@@ -137,6 +137,16 @@ int main(void) {
             }
         }
     }
+} // mtest07
+
+void mtest99(void){
+    vturn_on_3(); xHost3_on();
+    //vturn_on_4(); xHost4_on();
+
+    //Delay_100ms(); // 0.1 second
+    //main_init_test3();
+    
+#define debug_test_usage 0
     while(1)
     {
 
@@ -202,4 +212,50 @@ int main(void) {
         // wdt_init_60ms
 
     }
+} // mtest99
+
+void mtest100_led_by_delay(void){
+    while(1)
+    {
+
+        //__delay_cycles( 1000 ) ;
+        _Y1( LED_on,    led14 );
+        //__delay_cycles( 1000 ) ;
+        _Y1( LED_off,   led14 );
+    }
+} // mtest100_led_by_delay
+
+int main(void) {
+
+
+    //uint8_t __ii ;
+    //uint8_t __rt ;
+
+    // wdt_test();
+
+    main_init();
+    // led_1234_init
+    // led_1234_init_all_off();
+    // vturn__init();
+    // vturnOff3__init
+    // _SetOut0Z
+    // #define vturnOff3__init()          {_SetOut0Z(pMosGall)}
+
+
+    //_uart_p1_5_tx_only_testloop();
+
+    /*
+    if ( 0 ) mtest01_test_uart();
+    if ( 0 ) mtest02_test_led_test_loop();
+    if ( 0 ) mtest03_test_wdt_as_timer_gap();
+    if ( 0 ) mtest04();
+    if ( 0 ) mtest05();
+    if ( 0 ) mtest06();
+    if ( 0 ) mtest07();
+
+    if ( 0 ) mtest99();
+    */
+
+    if ( 1 ) mtest03_test_wdt_as_timer_gap();
+    mtest100_led_by_delay();
 }
