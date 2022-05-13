@@ -6,14 +6,19 @@
 int main(void) {
 
 
-    //uint8_t __ii ;
-    //uint8_t __rt ;
+    if ( 1 ) {
+        _wdt_stop ; _gpio_enable ;
+        led_1234_init_all_off() ;
+        led_1234_init_test_loop();
+    }
 
     wdt_test();
 
     main_init();
     main_init_test2_test_flash_evry_gap();
     main_init_test3_test_flash_evry_16_gap();
+}
+void mainX2(void) {
     // led_1234_init
     // led_1234_init_all_off();
     // vturn__init();
