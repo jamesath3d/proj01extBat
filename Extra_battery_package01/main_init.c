@@ -50,7 +50,7 @@ void main_init(void){
 
     adc__init();
 
-    main_init_test2_test_flash_evry_gap();
-    main_init_test3_test_flash_evry_16_gap();
+    //main_init_test2_test_flash_evry_gap();
+    //main_init_test3_test_flash_evry_16_gap();
 
 } // main_init

@@ -26,6 +26,8 @@ Extra_battery_package01/led__init.h
 Extra_battery_package01/main.c
 Extra_battery_package01/main.h
 Extra_battery_package01/main_init.c
+Extra_battery_package01/test01.c
+Extra_battery_package01/test01.h
 Extra_battery_package01/vbat__init.c
 Extra_battery_package01/vbat__init.h
 Extra_battery_package01/vturn_34_follow_key1_once.c
