@@ -13,7 +13,10 @@
 #include "interupt_wdt.h"
 #include "battery_voltage_calc.h"
 #include "test01.h"
+#include "test02.h"
 
+void main_init_test2_test_flash_evry_gap(void);
+void main_init_test3_test_flash_evry_16_gap(void);
 void main_init_test1(void);
 void main_init_test2(void);
 void main_init_test3(void);

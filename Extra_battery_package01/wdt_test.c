@@ -23,8 +23,10 @@ void wdt_test(void) {
             //P1OUT |= BIT6 ; // off
 
             //led_11_on();
+            _Y1( LED_on,    led11 );
             __delay_cycles(1); //__delay_cycles(1000);
             //led_11_off();
+            _Y1( LED_off,    led11 );
         }
 
 
