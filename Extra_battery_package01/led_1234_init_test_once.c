@@ -17,7 +17,7 @@ void led_1234_init_test_once_all_by_lpm(void){
 
     __led_1234_id2 = led_1234_init_test_by_byte_MSB ;
     while ( __led_1234_id2 ) {
-        for ( uint8_t __ii = 8; ii > 0 ; ii -- ) {
+        for ( uint8_t ii = 8; ii > 0 ; ii -- ) {
             _WDT_wait_interrupt_LPM3;
         }
         led_1234_init_test_by_byte( __led_1234_id2 );
