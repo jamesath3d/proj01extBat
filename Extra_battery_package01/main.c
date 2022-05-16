@@ -47,11 +47,13 @@ int main(void) {
 
 
     //mainX2();
-    mainX3();
-
-    while(1);
+    //mainX3();
+    //while(1);
 
     main_init();
+    led_1234_init_test_once_all_by_lpm();
+    while(1);
+
     main_init_test2_test_flash_evry_gap();
     main_init_test3_test_flash_evry_16_gap();
 }

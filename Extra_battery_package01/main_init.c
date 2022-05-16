@@ -34,7 +34,7 @@ void main_init(void){
 
     _wdt_timer_gap_60ms_at_1Mhz_main_clk();
     //main_init_test2_test_flash_evry_gap();
-    main_init_test3_test_flash_evry_16_gap();
+    //main_init_test3_test_flash_evry_16_gap();
 
     _gpio_init();
 
