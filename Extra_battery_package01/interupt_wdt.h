@@ -7,7 +7,8 @@
 
 
 
-void wdt_test(void) ;
+void wdt_test_with_lpm(void) ;
+void wdt_test_without_lpm(void) ;
 //void wdt_interrupt_gap_60ms_at_1Mhz_main_clk(void) ;
 
 #endif

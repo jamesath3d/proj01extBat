@@ -3,22 +3,20 @@
 
 
 
-int main(void) {
-
-
-    if ( 1 ) {
+void mainX2(void) {
+    while ( 1 ) {
         _wdt_stop ; _gpio_enable ;
         led_1234_init_all_off() ;
         led_1234_init_test_loop();
+    } 
+} // mainX2
+void mainX3(void) {
+    while ( 1 ) {
+        wdt_test_with_lpm();
+        //wdt_test_without_lpm();
     }
-
-    wdt_test();
-
-    main_init();
-    main_init_test2_test_flash_evry_gap();
-    main_init_test3_test_flash_evry_16_gap();
-}
-void mainX2(void) {
+} // mainX3
+void mainX4(void) {
     // led_1234_init
     // led_1234_init_all_off();
     // vturn__init();
@@ -44,4 +42,16 @@ void mainX2(void) {
 
     //if ( 1 ) mtest03_test_wdt_as_timer_gap();
     mtest100_led_by_delay();
+} // mainX4
+int main(void) {
+
+
+    //mainX2();
+    mainX3();
+
+    while(1);
+
+    main_init();
+    main_init_test2_test_flash_evry_gap();
+    main_init_test3_test_flash_evry_16_gap();
 }
