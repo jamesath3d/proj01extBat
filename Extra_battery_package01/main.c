@@ -45,15 +45,17 @@ void mainX4(void) {
 } // mainX4
 
 void mainX5(void) {
-    TA0CCTL1 = OUTMOD_7;                      // CCR1 reset/set
-    TA0CCTL2 = OUTMOD_2;                      // CCR2 reset/set
-    TA0CCR0 = 32000 ;                         // PWM Period , as the count-up maximum, which is use CCR0
-    TA0CCR1 = 3200;                           // CCR1 PWM duty cycle
-    TA0CCR2 = 29000;                            // CCR2 PWM duty cycle
+    //TA0CCTL0 =            CCIE ;                      // CCR1 reset/set
+    TA0CCTL1 = OUTMOD_7 | CCIE ;                      // CCR1 reset/set
+    TA0CCTL2 = OUTMOD_2 | CCIE ;                      // CCR2 reset/set
+    TA0CCR0 = 320 ;                         // PWM Period , as the count-up maximum, which is use CCR0
+    TA0CCR1 =   5;                           // CCR1 PWM duty cycle
+    TA0CCR2 = 290;                            // CCR2 PWM duty cycle
 
     //TA0CTL = TASSEL__SMCLK | MC__UP | TACLR | TAIE | TAIFG ;  // SMCLK, up mode, clear TAR
     //TA0CTL = TASSEL__ACLK | MC__UP | TACLR;  // ACLK(32768Hz), up mode, clear TAR
-    TA0CTL = TASSEL__ACLK | MC__UP | TACLR | TAIE;  // ACLK(32768Hz), up mode, clear TAR
+    //TA0CTL = TASSEL__ACLK | MC__UP | TACLR | TAIE;  // ACLK(32768Hz), up mode, clear TAR
+    TA0CTL = TASSEL__ACLK | ID__1 | MC__UP | TACLR | TAIE;  // ACLK(32768Hz), up mode, clear TAR
 } // mainX5
 
 int main(void) {

@@ -39,14 +39,25 @@ void _interupt_timer0_a1_isr(void)
     //_Y1( LED_on,        led13 );
     //P1DIR ^= BIT1 ;
     //_Y1( LED_flash,        led13 );
-    if ( (TA0CCTL0 & CCIFG) )
-        _Y1( LED_flash,        led11 );
-    if ( (TA0CCTL1 & CCIFG) )
-        _Y1( LED_flash,        led12 );
-    if ( (TA0CCTL2 & CCIFG) )
-        _Y1( LED_flash,        led13 );
+
+    uint8_t __tt ;
+    __tt = 0 ;
+
+    if ( (TA0CCTL0 & CCIFG) ) {
+        _Y1( LED_on,          led12 );
+        _Y1( LED_on,          led13 );
+        TA0CCTL0 &= (~CCIFG) ;
+        __tt |= 1 ;
+    }
+    if ( (TA0CCTL1 & CCIFG) ) {
+        _Y1( LED_off,        led12 );
+        TA0CCTL1 &= (~CCIFG) ;
+        __tt |= 2 ;
+    }
+    if ( (TA0CCTL2 & CCIFG) ) {
+        _Y1( LED_off,        led13 );
+        TA0CCTL2 &= (~CCIFG) ;
+        __tt |= 4 ;
+    }
     TA0CTL &= (~TAIFG);
-    //TA0CCTL0 &= (~CCIFG) ;
-    //TA0CCTL1 &= (~CCIFG) ;
-    //TA0CCTL2 &= (~CCIFG) ;
 } // _interupt_timer0_a1_isr
