@@ -52,8 +52,8 @@ void mainX5(void) {
     TA0CCR2 = 29000;                            // CCR2 PWM duty cycle
 
     //TA0CTL = TASSEL__SMCLK | MC__UP | TACLR | TAIE | TAIFG ;  // SMCLK, up mode, clear TAR
-    TA0CTL = TASSEL__ACLK | MC__UP | TACLR;  // ACLK(32768Hz), up mode, clear TAR
-    //TA0CTL = TASSEL__ACLK | MC__UP | TACLR | TAIE;  // ACLK(32768Hz), up mode, clear TAR
+    //TA0CTL = TASSEL__ACLK | MC__UP | TACLR;  // ACLK(32768Hz), up mode, clear TAR
+    TA0CTL = TASSEL__ACLK | MC__UP | TACLR | TAIE;  // ACLK(32768Hz), up mode, clear TAR
 } // mainX5
 
 int main(void) {

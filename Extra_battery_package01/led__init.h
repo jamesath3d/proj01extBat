@@ -15,6 +15,7 @@
 
 #define LED_off     _SetInX
 #define LED_on      _SetOutX
+#define LED_flash   _SetOutF
 
 void led_1234_init_all_off(void);
 void led_1234_init_test_loop(void);
