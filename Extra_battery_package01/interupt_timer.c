@@ -2,6 +2,7 @@
 
 #include "main.h"
 
+uint8_t ledB = LedBr0 ;
 // TA0IV
     __attribute__((interrupt(TIMER0_A0_VECTOR))) // 0x57 0xfff8
 void interupt_timer0_a0_isr(void)

@@ -8,6 +8,7 @@ Extra_battery_package01/battery_voltage_calc.h
 Extra_battery_package01/dcdc__init.c
 Extra_battery_package01/dcdc__init.h
 Extra_battery_package01/interupt_timer.c
+Extra_battery_package01/interupt_timer.h
 Extra_battery_package01/interupt_wdt.c
 Extra_battery_package01/interupt_wdt.h
 Extra_battery_package01/key_1_blink_once_on_led3.c
