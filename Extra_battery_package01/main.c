@@ -43,16 +43,33 @@ void mainX4(void) {
     //if ( 1 ) mtest03_test_wdt_as_timer_gap();
     mtest100_led_by_delay();
 } // mainX4
+
+void mainX5(void) {
+    TA0CCTL1 = OUTMOD_7;                      // CCR1 reset/set
+    TA0CCTL2 = OUTMOD_2;                      // CCR2 reset/set
+    TA0CCR0 = 32000 ;                         // PWM Period , as the count-up maximum, which is use CCR0
+    TA0CCR1 = 3200;                           // CCR1 PWM duty cycle
+    TA0CCR2 = 29000;                            // CCR2 PWM duty cycle
+
+    //TA0CTL = TASSEL__SMCLK | MC__UP | TACLR | TAIE | TAIFG ;  // SMCLK, up mode, clear TAR
+    TA0CTL = TASSEL__ACLK | MC__UP | TACLR;  // ACLK(32768Hz), up mode, clear TAR
+    //TA0CTL = TASSEL__ACLK | MC__UP | TACLR | TAIE;  // ACLK(32768Hz), up mode, clear TAR
+} // mainX5
+
 int main(void) {
 
 
-    //mainX2();
-    //mainX3();
+    if(0) mainX2();
+    if(0) mainX3();
+    if(0) mainX4();
     //while(1);
 
     main_init();
-    led_1234_init_test_once_all_by_lpm();
-    while(1);
+    //led_1234_init_test_once_all_by_lpm(); // to indicate that the board is actived.
+    if(1) mainX5();                         // _interupt_timer0_a0_isr
+    //_Y1( LED_on,        led13 );
+    while(1){ _WDT_wait_interrupt_LPM3; }   // _interupt_wdt_isr
+    //while(1){ _WDT_wait_interrupt_LPM0; }
 
     main_init_test2_test_flash_evry_gap();
     main_init_test3_test_flash_evry_16_gap();
