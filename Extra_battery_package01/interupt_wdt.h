@@ -9,6 +9,7 @@
 
 void wdt_test_with_lpm(void) ;
 void wdt_test_without_lpm(void) ;
+void interupt_init_ccr1_for_led_brightness(void) ;
 //void wdt_interrupt_gap_60ms_at_1Mhz_main_clk(void) ;
 
 #endif

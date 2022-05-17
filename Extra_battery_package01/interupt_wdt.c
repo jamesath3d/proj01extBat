@@ -4,7 +4,7 @@
 
 //uint8_t _wdt_cnt01 ;
     __attribute__((interrupt(WDT_VECTOR))) // 0x48 --> 0xffe6
-void _interupt_wdt_isr(void)
+void interupt_wdt_isr(void)
 {
     //_Y1( LED_flash,        led14 ); 
 

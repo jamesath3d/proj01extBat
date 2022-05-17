@@ -50,6 +50,8 @@ void main_init(void){
 
     adc__init();
 
+    interupt_init_ccr1_for_led_brightness();
+
     //main_init_test2_test_flash_evry_gap();
     //main_init_test3_test_flash_evry_16_gap();
 
