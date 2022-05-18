@@ -45,15 +45,14 @@ void mainX4(void) {
 } // mainX4
 
 void mainX5(void) {
-    uint8_t __ii ;
+    //uint8_t __ii ;
     uint8_t __jj ;
     uint8_t __kk ;
     __kk = 0 ;
     while( 1 )
     {
-        for ( __ii = 16 ; __ii >= 1 ; __ii -- ) {
-            _WDT_wait_interrupt_LPM3 ;
-        }
+        for ( uint8_t __ii = 16 ; __ii >= 1 ; __ii -- ) { _WDT_wait_interrupt_LPM3 ; }
+        //_WDT_wait_interrupt_LPM3 ;
         __kk ++ ;
         __jj = __kk % 6 ;
 
