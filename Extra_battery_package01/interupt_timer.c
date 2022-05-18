@@ -55,7 +55,8 @@ void interupt_init_ccr1_for_led_brightness(void) {
 void interupt_init_ccr1_for_led_off(void) {
     //TA0CTL &= ( ~ TAIE ) ;  
     TA0CTL &= ( ~ MC__UPDOWN ) ;
-    ledB = LedBr0 ;
+    //ledB = LedBr0 ;
+    P1DIR &= LedBrMask ;    // all as input --> off
 } // interupt_init_ccr1_for_led_off
 void interupt_init_ccr1_for_led_on(void) {
     //TA0CTL |=     TAIE   ;  

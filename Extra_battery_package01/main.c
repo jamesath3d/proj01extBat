@@ -51,10 +51,14 @@ void mainY1(void) {
 
         __tickCNT ++ ;
         if ( 0 == ( __tickCNT & 0xF ) ) {
-            //_uart_p1_5_tx_only_put_u8d( key_1_read() ) ;//             _READbit_(key_1) 
-            //_UART_P1_5_TX_PUT_CH(',');
-            _uart_p1_5_tx_only_put_u8d( __keyActivedCNT ) ;//             _READbit_(key_1) 
-            _UART_P1_5_TX_PUT_CH(',');
+            if ( 0 ) {
+                _uart_p1_5_tx_only_put_u8d( key_1_read() ) ;//             _READbit_(key_1) 
+                _UART_P1_5_TX_PUT_CH(',');
+            }
+            if ( 0 ) {
+                _uart_p1_5_tx_only_put_u8d( __keyActivedCNT ) ;//             _READbit_(key_1) 
+                _UART_P1_5_TX_PUT_CH(',');
+            }
 
             _uart_p1_5_tx_only_put_u8d( __tickCNT >> 4 );
             _uart_p1_5_tx_only_put_rn();
@@ -62,9 +66,11 @@ void mainY1(void) {
             // interupt_timer0_a0_isr
 
             if ( (__tickCNT & 0x10) ) {
-                interupt_init_ccr1_for_led_off();
+                    interupt_init_ccr1_for_led_off();
             } else {
-                if ( __keyActivedCNT ) {
+                if ( 0 == __keyActivedCNT ) {
+                    interupt_init_ccr1_for_led_off();
+                } else {
                     interupt_init_ccr1_for_led_on();
                 }
             }
