@@ -22,12 +22,16 @@ void interupt_timer0_a1_isr(void)
         //_Y1( LED_on,          led12 );
         //#define _SetInX(p1,b1)              { P ## p1 ## DIR    &= ( ~ BIT ## b1 ) ; }
         //#define _SetOutX(p1,b1)             { P ## p1 ## DIR    |=     BIT ## b1   ; }
+        //P1DIR &= ( ~ LedBrMask ) ;
+        P1DIR &= LedBrMask ;
         P1DIR |= ledB ;
         TA0CCTL0 &= (~CCIFG) ;
     }
     if ( (TA0CCTL1 & CCIFG) ) {
         //_Y1( LED_off,        led12 );
-        P1DIR &= ( ~ ledB ) ;
+        //P1DIR &= ( ~ ledB ) ;
+        //P1DIR |= (   LedBr0 ) ;
+        P1DIR &= LedBrMask ;
         TA0CCTL1 &= (~CCIFG) ;
     }
     TA0CTL &= (~TAIFG);
@@ -36,7 +40,7 @@ void interupt_init_ccr1_for_led_brightness(void) {
     //TA0CCTL0 =            CCIE ;                      // CCR1 reset/set
     TA0CCTL1 = OUTMOD_7 | CCIE ;                      // CCR1 reset/set
     TA0CCR0 = 320 ;                         // PWM Period , as the count-up maximum, which is use CCR0
-    TA0CCR1 =   5;                           // CCR1 PWM duty cycle
+    TA0CCR1 = 315;                           // CCR1 PWM duty cycle
 
     //TA0CTL = TASSEL__ACLK | ID__1 | MC__UP | TACLR | TAIE;  // ACLK(32768Hz), up mode, clear TAR
     TA0CTL = TASSEL__ACLK | ID__1 | MC__UP | TACLR       ;  // ACLK(32768Hz), up mode, clear TAR
