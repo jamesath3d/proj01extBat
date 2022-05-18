@@ -2,7 +2,8 @@
 
 #include "main.h"
 
-uint8_t ledB = LedBr0 ;
+volatile uint8_t ledB = LedBr0 ;
+const uint8_t ledBarr[] = { LedBr0 , LedBr1, LedBr2, LedBr3, LedBr4, LedBr5 , LedBrX };
 // TA0IV
     __attribute__((interrupt(TIMER0_A0_VECTOR))) // 0x57 0xfff8
 void interupt_timer0_a0_isr(void)
