@@ -19,11 +19,15 @@ void interupt_timer0_a0_isr(void)
 void interupt_timer0_a1_isr(void)
 {
     if ( (TA0CCTL0 & CCIFG) ) {
-        _Y1( LED_on,          led12 );
+        //_Y1( LED_on,          led12 );
+        //#define _SetInX(p1,b1)              { P ## p1 ## DIR    &= ( ~ BIT ## b1 ) ; }
+        //#define _SetOutX(p1,b1)             { P ## p1 ## DIR    |=     BIT ## b1   ; }
+        P1DIR |= ledB ;
         TA0CCTL0 &= (~CCIFG) ;
     }
     if ( (TA0CCTL1 & CCIFG) ) {
-        _Y1( LED_off,        led12 );
+        //_Y1( LED_off,        led12 );
+        P1DIR &= ( ~ ledB ) ;
         TA0CCTL1 &= (~CCIFG) ;
     }
     TA0CTL &= (~TAIFG);
