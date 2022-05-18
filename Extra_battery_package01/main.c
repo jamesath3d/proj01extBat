@@ -59,7 +59,7 @@ int main(void) {
     //led_1234_init_test_once_all_by_lpm(); // to indicate that the board is actived.
     if(1) mainX5();                         // interupt_timer0_a0_isr
     //_Y1( LED_on,        led13 );
-    while(1){ _WDT_wait_interrupt_LPM3; }   // interupt_wdt_isr
+    _WDT_wait_interrupt_LPM3_loop;
     //while(1){ _WDT_wait_interrupt_LPM0; }
 
     main_init_test2_test_flash_evry_gap();
