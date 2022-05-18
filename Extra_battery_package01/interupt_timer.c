@@ -38,5 +38,15 @@ void interupt_init_ccr1_for_led_brightness(void) {
     TA0CCR0 = 320 ;                         // PWM Period , as the count-up maximum, which is use CCR0
     TA0CCR1 =   5;                           // CCR1 PWM duty cycle
 
-    TA0CTL = TASSEL__ACLK | ID__1 | MC__UP | TACLR | TAIE;  // ACLK(32768Hz), up mode, clear TAR
-}
+    //TA0CTL = TASSEL__ACLK | ID__1 | MC__UP | TACLR | TAIE;  // ACLK(32768Hz), up mode, clear TAR
+    TA0CTL = TASSEL__ACLK | ID__1 | MC__UP | TACLR       ;  // ACLK(32768Hz), up mode, clear TAR
+} // interupt_init_ccr1_for_led_brightness
+void interupt_init_ccr1_for_led_off(void) {
+    //TA0CTL &= ( ~ TAIE ) ;  
+    TA0CTL &= ( ~ MC__UPDOWN ) ;
+    ledB = LedBr0 ;
+} // interupt_init_ccr1_for_led_off
+void interupt_init_ccr1_for_led_on(void) {
+    //TA0CTL |=     TAIE   ;  
+    TA0CTL |= MC__UP ;
+} // interupt_init_ccr1_for_led_on

@@ -15,6 +15,8 @@
 #define LedBrX   0b10000110
 
 void interupt_init_ccr1_for_led_brightness(void) ;
+void interupt_init_ccr1_for_led_off(void) ;
+void interupt_init_ccr1_for_led_on(void) ;
 extern volatile uint8_t ledB ;
 extern const uint8_t ledBarr[] ;
 

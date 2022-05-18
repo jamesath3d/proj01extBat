@@ -57,6 +57,15 @@ void mainX5(void) {
         __kk ++ ;
         __jj = __kk % 6 ;
 
+        if ( 2 == __jj ) {
+            interupt_init_ccr1_for_led_off();
+            //interupt_init_ccr1_for_led_brightness();
+        }
+        if ( 3 == __jj ) {
+            interupt_init_ccr1_for_led_on();
+            //interupt_init_ccr1_for_led_brightness();
+        }
+
         ledB = ledBarr[ __jj ] ; 
         // interupt_timer0_a0_isr
 
