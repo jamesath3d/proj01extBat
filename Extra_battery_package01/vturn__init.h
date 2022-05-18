@@ -73,6 +73,8 @@ void vturn__init(void);
 void vturn_34_follow_key1_once(void);
 void vturn_on_4(void);
 void vturn_on_3(void);
+void vturn_off_4(void);
+void vturn_off_3(void);
 
 
 #endif
