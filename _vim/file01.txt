@@ -31,6 +31,8 @@ Extra_battery_package01/test01.c
 Extra_battery_package01/test01.h
 Extra_battery_package01/test02.c
 Extra_battery_package01/test02.h
+Extra_battery_package01/test03.c
+Extra_battery_package01/test03.h
 Extra_battery_package01/vbat__init.c
 Extra_battery_package01/vbat__init.h
 Extra_battery_package01/vturn_34_follow_key1_once.c
