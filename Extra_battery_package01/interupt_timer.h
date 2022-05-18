@@ -7,9 +7,9 @@
 
 // led11   
 #define LedBr0   0b00000000
-#define LedBr1   0b00000001
-#define LedBr2   0b00000011
-#define LedBr3   0b00000111
+#define LedBr1   0b00001000
+#define LedBr2   0b00001100
+#define LedBr3   0b00001110
 #define LedBr4   0b00001111
 #define LedBr5   0b10001111
 #define LedBrX   0b10000110
