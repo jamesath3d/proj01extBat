@@ -88,12 +88,13 @@ void mainX6(void) {
         __jj = __tickCNT >> 5 ;  // 2 second
         __kk = __jj % 6 ; 
 
-        ledB = ledBarr[ __kk ] ; 
+        //ledB = ledBarr[ __kk ] ; 
+        ledB = LedBr3 ; // for test only
 
         if ( (__tickCNT & 0x10) ) {
-            interupt_init_ccr1_for_led_off();
+            //interupt_init_ccr1_for_led_off();
         } else {
-            interupt_init_ccr1_for_led_on();
+            //interupt_init_ccr1_for_led_on();
         }
 
         // interupt_timer0_a0_isr
