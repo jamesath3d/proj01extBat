@@ -75,6 +75,37 @@ void mainX5(void) {
     }
 } // mainX5
 
+void mainX6(void) {
+    //uint8_t __ii ;
+    uint8_t __jj ;
+    uint8_t __kk ;
+    __kk = 0 ;
+    while( 1 )
+    {
+        for ( uint8_t __ii = 16 ; __ii >= 1 ; __ii -- ) { _WDT_wait_interrupt_LPM3 ; }
+        //_WDT_wait_interrupt_LPM3 ;
+        __kk ++ ;
+        __jj = __kk % 6 ;
+
+        if ( 2 == __jj ) {
+            interupt_init_ccr1_for_led_off();
+            //interupt_init_ccr1_for_led_brightness();
+        }
+        if ( 3 == __jj ) {
+            interupt_init_ccr1_for_led_on();
+            //interupt_init_ccr1_for_led_brightness();
+        }
+
+        ledB = ledBarr[ __jj ] ; 
+        // interupt_timer0_a0_isr
+
+        _uart_p1_5_tx_only_put_u8d( __jj );
+        _uart_p1_5_tx_only_put_rn();
+
+        _WDT_wait_interrupt_LPM3 ;
+    }
+} // mainX6
+
 int main(void) {
 
 
@@ -85,7 +116,8 @@ int main(void) {
 
     main_init();
     //led_1234_init_test_once_all_by_lpm(); // to indicate that the board is actived.
-    if(1) mainX5();                         // interupt_timer0_a0_isr
+    if(0) mainX5();                         // interupt_timer0_a0_isr
+    if(1) mainX6();                         // interupt_timer0_a0_isr
     //_Y1( LED_on,        led13 );
     _WDT_wait_interrupt_LPM3_loop;
     //while(1){ _WDT_wait_interrupt_LPM0; }
