@@ -30,7 +30,7 @@ void mainY2(void) {
     __BatteryVoltageMV = 0 ;
     __BatteryVoltageMv2 = 0 ;
 
-    ledB = LedBr3 ; // for test only
+    ledB = LedBrX ; // for test only
 
     xHost4_off(); xCharge4_off();
     xHost3_on(); xCharge3_on();
@@ -64,7 +64,7 @@ void mainY2(void) {
 
             // interupt_timer0_a0_isr
 
-            if ( 0 ) {
+            if ( 1 ) {
                 if ( (__tickCNT & 0x10) ) {
                     interupt_init_ccr1_for_led_off();
                 } else {
