@@ -23,6 +23,7 @@ void mainY2(void) {
     uint8_t __keyActivedCNT ;
     uint32_t __BatteryVoltageMV ;
     uint32_t __BatteryVoltageMv2 ;
+    uint8_t  __batteryLevel ;
 
     __tickCNT = 0 ;
     __keyActivedCNT = 0 ;
@@ -98,12 +99,15 @@ void mainY2(void) {
             if ( 0 == __BatteryVoltageMv2 ) {
                 _UART_P1_5_TX_PUT_CH('=');
             } else {
-                ledB =
+                __batteryLevel =
                     battery_mv_calc_led( __BatteryVoltageMv2 );
+                ledB = ledBarr[__batteryLevel] ;
 
                 __BatteryVoltageMV = __BatteryVoltageMv2  ;
                 if ( 1 ) {
                     _uart_p1_5_tx_only_put_uint32d(  __BatteryVoltageMv2 ) ;
+                    _uart_p1_5_tx_only_put_u8d(  __batteryLevel ) ;
+                    _uart_p1_5_tx_only_put_u8d(  ledB ) ;
                     //_UART_P1_5_TX_PUT_CH(',');
                 }
             }
