@@ -11,7 +11,7 @@
 #define led11   1,3
 #define led01234  led10,led11,led12,led13,led14
 
-#define led_1234_init()  _Y5( _PinitAsInOffOut0X, led01234 )
+#define led_1234_init()  _Y5( _PinitAsInRenOffOut0X, led01234 )
 
 #define LED_off     _SetInX
 #define LED_on      _SetOutX
