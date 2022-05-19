@@ -9,7 +9,7 @@
 
 #define key_1               2,3
 #define key_1_init()        _Y1( _PinitAsInRenOffX,  key_1 ) 
-#define key_1_read()        _Y1( _READbitX, key_1 )  
+#define key_1_read()        _R1( _READbitX, key_1 )  
 
 
 void key_1_blink_once_on_led3(void);
