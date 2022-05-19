@@ -33,10 +33,10 @@ uint8_t battery_mv_calc_led( uint32_t ___battery_mv ) {
                 if ( ___battery_mv <        10980 ) {   // 65%, 0110_1
                     battery_led             = 3 ;
                 } else {
-                    if ( ___battery_mv <        11.96 ) {   // 95%, 0110_1
+                    if ( ___battery_mv <    11960 ) {   // 95%, 0110_1
                         battery_led         = 4 ;
                     } else {
-                        battery_led             = 5 ;     // full
+                        battery_led         = 5 ;     // full
                     }
                 }
             }
