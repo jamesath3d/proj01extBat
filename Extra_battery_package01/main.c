@@ -4,7 +4,16 @@
 
 
 
-void mainY1(void) {
+void mainY1(void) { // test led 0 1 2 3 4 5
+    for ( uint8_t __ii = 0 ; __ii <=5 ; __ii ++ ) {
+        ledB = ledBarr[__ii] ; // for test only
+        _uart_p1_5_tx_only_put_u8d( __ii );
+        _uart_p1_5_tx_only_put_rn();
+
+        _WDT_wait_interrupt_LPM3x( 32 ) ;
+    }
+} // mainY1
+void mainY2(void) {
     //uint8_t __ii ;
     uint8_t __tickCNT ;
 #define __keyActived_default 128
@@ -79,57 +88,53 @@ void mainY1(void) {
         }
         if ( 0x1D == ( __tickCNT & BatteryMask ) ) { // adc read battery 1st
             __BatteryVoltageMv2 = adc__loop_once() ;
-            if ( 0 != __BatteryVoltageMv2 ) {
-                __BatteryVoltageMV = __BatteryVoltageMv2  ;
-                if ( 1 ) {
-                    _uart_p1_5_tx_only_put_uint32d(  __BatteryVoltageMV ) ;
-                    _UART_P1_5_TX_PUT_CH('.');
-                }
-            }
         }
         if ( 0x1E == ( __tickCNT & BatteryMask ) ) { // adc read battery 2nd if 1st failed
             if ( 0 == __BatteryVoltageMv2 ) {
                 __BatteryVoltageMv2 = adc__loop_once() ;
-                if ( __BatteryVoltageMv2 != 0 ) {
-                    __BatteryVoltageMV = __BatteryVoltageMv2  ;
-                    if ( 1 ) {
-                        _uart_p1_5_tx_only_put_uint32d(  __BatteryVoltageMV ) ;
-                        _UART_P1_5_TX_PUT_CH(',');
-                    }
-                } 
             }
         }
         if ( 0x1F == ( __tickCNT & BatteryMask ) ) { // restore charger
             if ( 0 == __BatteryVoltageMv2 ) {
                 _UART_P1_5_TX_PUT_CH('=');
-            } 
+            } else {
+                ledB =
+                    battery_mv_calc_led( __BatteryVoltageMv2 );
+
+                __BatteryVoltageMV = __BatteryVoltageMv2  ;
+                if ( 1 ) {
+                    _uart_p1_5_tx_only_put_uint32d(  __BatteryVoltageMv2 ) ;
+                    //_UART_P1_5_TX_PUT_CH(',');
+                }
+            }
             _uart_p1_5_tx_only_put_rn();
             xCharge3_on(); 
         }
     }
-} // mainY1
+    } // mainY2
 
-int main(void) {
+    int main(void) {
 
 
-    if(0) mainX2();
-    if(0) mainX3();
-    if(0) mainX4();
-    //while(1);
+        if(0) mainX2();
+        if(0) mainX3();
+        if(0) mainX4();
+        //while(1);
 
-    main_init();
-    //led_1234_init_test_once_all_by_lpm(); // to indicate that the board is actived.
+        main_init();
+        //led_1234_init_test_once_all_by_lpm(); // to indicate that the board is actived.
 
-    if(0) main_init_test2_test_flash_evry_gap();
-    if(0) main_init_test3_test_flash_evry_16_gap();
+        if(0) main_init_test2_test_flash_evry_gap();
+        if(0) main_init_test3_test_flash_evry_16_gap();
 
-    if(0) mainX5();                         // interupt_timer0_a0_isr
-    if(0) mainX6();                         // interupt_timer0_a0_isr
+        if(0) mainX5();                         // interupt_timer0_a0_isr
+        if(0) mainX6();                         // interupt_timer0_a0_isr
 
-    if(1) mainY1();                         // interupt_timer0_a0_isr
+        if(1) mainY1();                         // interupt_timer0_a0_isr
+        if(1) mainY2();                         // interupt_timer0_a0_isr
 
-    //_Y1( LED_on,        led13 );
-    _WDT_wait_interrupt_LPM3_loop;
-    //while(1){ _WDT_wait_interrupt_LPM0; }
+        //_Y1( LED_on,        led13 );
+        _WDT_wait_interrupt_LPM3_loop;
+        //while(1){ _WDT_wait_interrupt_LPM0; }
 
-}
+    }

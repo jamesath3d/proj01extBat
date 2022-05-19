@@ -22,18 +22,22 @@ uint8_t battery_mv_calc_led( uint32_t ___battery_mv ) {
 
     //led_1234_init_test_by_byte
     if ( ___battery_mv <                    10200 ) {   // 10% , 0000_1
-        battery_led                     = 0b01101 ;
+        battery_led                         = 0 ;
     } else {
         if ( ___battery_mv <                10450 ) {   // 20%, 0001_1
-            battery_led                 = 0b10001 ;
+            battery_led                     = 1 ;
         } else {
             if ( ___battery_mv <            10620 ) {   // 30%, 0011_1
-                battery_led             = 0b11001 ;
+                battery_led                 = 2 ;
             } else {
                 if ( ___battery_mv <        10980 ) {   // 65%, 0110_1
-                    battery_led         = 0b11101 ;
+                    battery_led             = 3 ;
                 } else {
-                    battery_led             = 0b11111 ;     // 1111_1
+                    if ( ___battery_mv <        11.96 ) {   // 95%, 0110_1
+                        battery_led         = 4 ;
+                    } else {
+                        battery_led             = 5 ;     // full
+                    }
                 }
             }
         }

@@ -3,7 +3,7 @@
 #include "main.h"
 
 volatile uint8_t ledB = LedBr0 ;
-const uint8_t ledBarr[] = { LedBr0 , LedBr1, LedBr2, LedBr3, LedBr4, LedBr5 , LedBrX };
+const uint8_t ledBarr[] = { LedBrX , LedBr1, LedBr2, LedBr3, LedBr4, LedBr5 , LedBrY };
 // TA0IV
     __attribute__((interrupt(TIMER0_A0_VECTOR))) // 0x57 0xfff8
 void interupt_timer0_a0_isr(void)
@@ -24,7 +24,7 @@ void interupt_timer0_a1_isr(void)
         //#define _SetOutX(p1,b1)             { P ## p1 ## DIR    |=     BIT ## b1   ; }
         //P1DIR &= ( ~ LedBrMask ) ;
         P1DIR &= LedBrMask ;    // all as input --> off
-        P1DIR |= ledB ;         // selected as output
+        P1DIR |= ( ledB & (~LedBrMask) ) ;         // selected as output
         //_Y1( LED_off,        led11 );
         TA0CCTL0 &= (~CCIFG) ;
     }
