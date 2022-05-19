@@ -2,13 +2,14 @@
 #ifndef _KEY__INIT_H
 #define _KEY__INIT_H
 
-//#define key_1_PORT_             3
-//#define key_1_PIN_              0
-#define key_1_PORT_             2
-#define key_1_PIN_              3
+//#define key_1_PORT_             2
+//#define key_1_PIN_              3
+//#define key_1_init()            _SetIN_pullUP( key_1 ) 
+//#define key_1_read()            _READbit_(key_1) 
 
-#define key_1_init()            _SetIN_pullUP( key_1 ) 
-#define key_1_read()            _READbit_(key_1) 
+#define key_1               2,3
+#define key_1_init()        _Y1( _PinitAsInRenOffX,  key_1 ) 
+#define key_1_read()        _Y1( _READbitX, key_1 )  
 
 
 void key_1_blink_once_on_led3(void);
