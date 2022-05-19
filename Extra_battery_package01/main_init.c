@@ -44,6 +44,7 @@ void main_init(void){
     _uart_p1_5_tx_only_init();
 
     key_1_init();
+    vin16_init();
 
     dcdc_state__init();
 
