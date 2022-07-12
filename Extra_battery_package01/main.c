@@ -32,8 +32,10 @@ void mainY2(void) {
 
     ledB = LedBrX ; // for test only
 
-    xHost4_off(); xCharge4_off();
-    xHost3_on(); xCharge3_on();
+    //xHost4_off(); 
+    //xCharge4_off();
+    //xHost3_on(); 
+    xCharge3_on();
 
     while( 1 )
     {
@@ -96,7 +98,8 @@ void mainY2(void) {
         } else {
             __keyActivedCNT -- ;
         }
-        //if ( 0x1F == ( __tickCNT & 0xFF ) ) { // check every 16 second , stop charger
+        // from 0x0f to 0x1D/0x1e, stop charger, 0x1F, start charge, 
+        // about 0x10 equals 1 second. 0xFF about 16 seconds totally
         if ( 0x0F == ( __tickCNT & BatteryMask ) ) { // check every 16 second , stop charger
             xCharge3_off(); 
         }

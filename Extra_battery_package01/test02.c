@@ -79,7 +79,8 @@ void mtest07(void){
             }
             else {
                 _Y1( LED_off,   led14 ); 
-                xCharge3_on(); xCharge4_off();
+                xCharge3_on(); 
+                //xCharge4_off();
             }
         }
     }
@@ -87,7 +88,8 @@ void mtest07(void){
 //#endif // disable_main_test
 
 void mtest99(void){
-    vturn_on_3(); xHost3_on();
+    vturn_on_3(); 
+    //xHost3_on();
     //vturn_on_4(); xHost4_on();
 
     //Delay_100ms(); // 0.1 second

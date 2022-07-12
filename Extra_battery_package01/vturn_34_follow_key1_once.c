@@ -15,13 +15,13 @@ void vturn_34_follow_key1_once(void){
 
 void vturn_on_3(void){
     xCharge3_on();
-    xCharge4_off();
-    xHost3_on();
-    xHost4_off();
+    //xCharge4_off();
+    //xHost3_on();
+    //xHost4_off();
 } // vturn_on_3
 void vturn_on_4(void){
-    xCharge4_on();
+    //xCharge4_on();
     xCharge3_off();
-    xHost4_on();
-    xHost3_off();
+    //xHost4_on();
+    //xHost3_off();
 } // vturn_on_4

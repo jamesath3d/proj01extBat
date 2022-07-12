@@ -27,47 +27,59 @@
 //#define vturnOff4_TO_0()           {             _SetOUT_(vturnOff4y);            _SetOUT_(vturnOff3); }     // to 0
 //#define vturnOff4__init()          {  _PinInAsOffInitOut0(vturnOff4y); _PinInAsOffInitOut0(vturnOff3); }
 
-#define pMosG3      3,0
-#define pMosG4      2,2
-#define VturnOff42  2,7
-#define VturnOff41  2,5
-#define VturnOff32  2,0
-#define VturnOff31  3,2
+//#define pMosG3      3,0
+//#define pMosG4      2,2
+//#define VturnOff42  2,7
+//#define VturnOff41  2,5
+//#define VturnOff31  3,2
+#define vturn3_acset    2,0
+#define vturn3_ovpset   2,1
 
-#define pMosGall pMosG3,pMosG4
-#define vTurn3 VturnOff32
-#define vTurn4 VturnOff42
+//#define pMosGall pMosG3,pMosG4
+//#define vturn3_acset VturnOff32
+//#define vTurn4 VturnOff42
 //#define pMosGall pMosG3,pMosG4,VturnOff42
 
 //        _Y1( LED_on,    led11 );
 //        _Y1( LED_off,   led11 );
 
-#define vturnOff3__to_0()           { _Y1( _Set0X,       vTurn3  ); }
-#define vturnOff3__to_1()           { _Y1( _Set1X,       vTurn3  ); }
-#define vturnOff3__init()           { _Y1( _SetOutX0,    vTurn3  ); }
-//#define vturnOff3__init()          {_SetOut0Z(pMosGall)}
+#define vturnOff3ip__to_0()             { _Y1( _Set0X,       vturn3_acset  ); }
+#define vturnOff3ip__to_1()             { _Y1( _Set1X,       vturn3_acset  ); }
+#define vturnOff3ip_acset__init()       { _Y1( _SetOutX0,    vturn3_acset  ); }
+#define xCharge3_on                     vturnOff3ip__to_0
+#define xCharge3_off                    vturnOff3ip__to_1
 
-#define vturnOff4__to_0()           { _Y1( _Set0X,       vTurn4  ); }
-#define vturnOff4__to_1()           { _Y1( _Set1X,       vTurn4  ); }
-#define vturnOff4__init()           { _Y1( _SetOutX0,    vTurn4  ); }
+#define vturnOff3vp_ovpset_init()           { _Y1( _SetOutX0,    vturn3_ovpset  ); }
 
-#define pMosG3__to_0()              { _Y1( _Set0X,       pMosG3  ); }
-#define pMosG3__to_1()              { _Y1( _Set1X,       pMosG3  ); }
-#define pMosG3__init()              { _Y1( _SetOutX0,    pMosG3  ); }
+//#define vturnOff4__to_0()           { _Y1( _Set0X,       vTurn4  ); }
+//#define vturnOff4__to_1()           { _Y1( _Set1X,       vTurn4  ); }
+//#define vturnOff4__init()           { _Y1( _SetOutX0,    vTurn4  ); }
 
-#define pMosG4__to_0()              { _Y1( _Set0X,       pMosG4  ); }
-#define pMosG4__to_1()              { _Y1( _Set1X,       pMosG4  ); }
-#define pMosG4__init()              { _Y1( _SetOutX0,    pMosG4  ); }
+//#define pMosG3__to_0()              { _Y1( _Set0X,       pMosG3  ); }
+//#define pMosG3__to_1()              { _Y1( _Set1X,       pMosG3  ); }
+//#define pMosG3__init()              { _Y1( _SetOutX0,    pMosG3  ); }
 
-#define xCharge3_on             vturnOff3__to_0
-#define xCharge4_on             vturnOff4__to_0
-#define xCharge3_off            vturnOff3__to_1
-#define xCharge4_off            vturnOff4__to_1
+//#define pMosG4__to_0()              { _Y1( _Set0X,       pMosG4  ); }
+//#define pMosG4__to_1()              { _Y1( _Set1X,       pMosG4  ); }
+//#define pMosG4__init()              { _Y1( _SetOutX0,    pMosG4  ); }
 
-#define xHost3_on               pMosG3__to_1
-#define xHost4_on               pMosG4__to_1
-#define xHost3_off              pMosG3__to_0
-#define xHost4_off              pMosG4__to_0
+//#define xCharge4_on             vturnOff4__to_0
+//#define xCharge4_off            vturnOff4__to_1
+
+//#define xHost3_on               pMosG3__to_1
+//#define xHost4_on               pMosG4__to_1
+//#define xHost3_off              pMosG3__to_0
+//#define xHost4_off              pMosG4__to_0
+//
+//#define xHost4_on()               
+//#define xHost4_off()              
+//#define xHost3_on()
+//#define xHost3_off()
+//#define xCharge4_on()             
+//#define xCharge4_off()            
+#define pMosG4__init()
+#define pMosG3__init()
+//#define vturnOff4__init()
 
 void vturn__init(void);
 void vturn_34_follow_key1_once(void);
