@@ -30,6 +30,7 @@ void interupt_init_ccr1_for_led_brightness(void) ;
 void interupt_init_ccr1_for_led_off(void) ;
 void interupt_init_ccr1_for_led_on(void) ;
 extern volatile uint8_t ledB ;
-extern const uint8_t ledBarr[] ;
+//extern const uint8_t ledBarr[] ;
+uint8_t _ledLevel_calc_ledIO( uint8_t ___ledLevel ) ;
 
 #endif

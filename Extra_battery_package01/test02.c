@@ -141,7 +141,7 @@ void mtest99(void){
             _BatteryVoltageMV = adc__loop_once() ;
             if ( 0 != _BatteryVoltageMV ) {
                 _led_calced_by_adc = 
-                    battery_mv_calc_led( _BatteryVoltageMV );
+                    _battery_mv_calc_ledLevel( _BatteryVoltageMV );
 
                 if ( 1 ) {
                     _UART_P1_5_TX_PUT_CH(' ');

@@ -16,32 +16,32 @@
 // 10   PctVolts_Chrg=10.56
 // 100  PctVolts_Chrg=12.29
 
-static  uint8_t battery_led ;
-uint8_t battery_mv_calc_led( uint32_t ___battery_mv ) {
-    battery_led = 0 ;
+uint8_t _battery_mv_calc_ledLevel( uint32_t ___battery_mv ) {
+    static  uint8_t __battery_ledLevel ;
+    __battery_ledLevel = 0 ;
 
     //led_1234_init_test_by_byte
     if ( ___battery_mv <                    10200 ) {   // 10% , 0000_1
-        battery_led                         = 0 ;
+        __battery_ledLevel                         = 0 ;
     } else {
         if ( ___battery_mv <                10450 ) {   // 20%, 0001_1
-            battery_led                     = 1 ;
+            __battery_ledLevel                     = 1 ;
         } else {
             if ( ___battery_mv <            10620 ) {   // 30%, 0011_1
-                battery_led                 = 2 ;
+                __battery_ledLevel                 = 2 ;
             } else {
                 if ( ___battery_mv <        10980 ) {   // 65%, 0110_1
-                    battery_led             = 3 ;
+                    __battery_ledLevel             = 3 ;
                 } else {
                     if ( ___battery_mv <    11960 ) {   // 95%, 0110_1
-                        battery_led         = 4 ;
+                        __battery_ledLevel         = 4 ;
                     } else {
-                        battery_led         = 5 ;     // full
+                        __battery_ledLevel         = 5 ;     // full
                     }
                 }
             }
         }
     }
-    return battery_led ;
+    return __battery_ledLevel ;
 
-} //    battery_mv_calc_led
+} //    _battery_mv_calc_ledLevel

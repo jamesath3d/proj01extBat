@@ -65,7 +65,7 @@ void mainX5(void) {
             //interupt_init_ccr1_for_led_brightness();
         }
 
-        ledB = ledBarr[ __jj ] ; 
+        ledB = _ledLevel_calc_ledIO( __jj ) ; 
         // interupt_timer0_a0_isr
 
         _uart_p1_5_tx_only_put_u8d( __jj );
@@ -88,7 +88,7 @@ void mainX6(void) {
         __jj = __tickCNT >> 5 ;  // 2 second
         __kk = __jj % 6 ; 
 
-        ledB = ledBarr[ __kk ] ; 
+        ledB = _ledLevel_calc_ledIO( __kk ) ; 
         //ledB = LedBr3 ; // for test only
 
         if ( (__tickCNT & 0x10) ) {

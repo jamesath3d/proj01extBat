@@ -6,7 +6,7 @@
 
 void mainY1(void) { // test led 0 1 2 3 4 5
     for ( uint8_t __ii = 0 ; __ii <=5 ; __ii ++ ) {
-        ledB = ledBarr[__ii] ; // for test only
+        ledB = _ledLevel_calc_ledIO(__ii) ; // for test only
         _uart_p1_5_tx_only_put_u8d( __ii );
         _uart_p1_5_tx_only_put_rn();
 
@@ -99,7 +99,7 @@ void mainY2(void) {
             __keyActivedCNT -- ;
         }
         // from 0x0f to 0x1D/0x1e, stop charger, 0x1F, start charge, 
-        // about 0x10 equals 1 second. 0xFF about 16 seconds totally
+        // about 0x10 Time Gap equals 1 second. 0xFF about 16 seconds totally
         if ( 0x0F == ( __tickCNT & BatteryMask ) ) { // check every 16 second , stop charger
             xCharge3_off(); 
         }
@@ -116,14 +116,15 @@ void mainY2(void) {
                 _UART_P1_5_TX_PUT_CH('=');
             } else {
                 __batteryLevel =
-                    battery_mv_calc_led( __BatteryVoltageMv2 );
-                ledB = ledBarr[__batteryLevel] ;
+                    _battery_mv_calc_ledLevel( __BatteryVoltageMv2 );
+                ledB = _ledLevel_calc_ledIO(__batteryLevel) ;
 
                 __BatteryVoltageMV = __BatteryVoltageMv2  ;
                 if ( 1 ) {
                     _uart_p1_5_tx_only_put_uint32d(  __BatteryVoltageMv2 ) ;
                     _uart_p1_5_tx_only_put_u8d(  __batteryLevel ) ;
-                    _uart_p1_5_tx_only_put_u8d(  ledB ) ;
+                    _uart_p1_5_tx_only_put_str("0x");
+                    _uart_p1_5_tx_only_put_hex(  ledB ) ;
                     //_UART_P1_5_TX_PUT_CH(',');
                 }
             }

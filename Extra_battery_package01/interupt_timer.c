@@ -4,6 +4,10 @@
 
 volatile uint8_t ledB = LedBr0 ;
 const uint8_t ledBarr[] = { LedBrX , LedBr1, LedBr2, LedBr3, LedBr4, LedBr5 , LedBrY };
+uint8_t _ledLevel_calc_ledIO( uint8_t ___ledLevel ) {
+    if ( ___ledLevel > 6 ) return LedBrY ;
+    return ledBarr[ ___ledLevel ] ;
+} // _ledLevel_calc_ledIO
 // TA0IV
     __attribute__((interrupt(TIMER0_A0_VECTOR))) // 0x57 0xfff8
 void interupt_timer0_a0_isr(void)
