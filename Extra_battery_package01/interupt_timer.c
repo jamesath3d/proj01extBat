@@ -9,6 +9,7 @@ uint8_t _ledLevel_calc_ledIO( uint8_t ___ledLevel ) {
     return ledBarr[ ___ledLevel ] ;
 } // _ledLevel_calc_ledIO
 // TA0IV
+
     __attribute__((interrupt(TIMER0_A0_VECTOR))) // 0x57 0xfff8
 void interupt_timer0_a0_isr(void)
 {
@@ -42,6 +43,7 @@ void interupt_timer0_a1_isr(void)
     }
     TA0CTL &= (~TAIFG);
 } // _interupt_timer0_a1_isr
+
 void interupt_init_ccr1_for_led_brightness(void) {
     TA0CCR0 = 500 ;                         // PWM Period , as the count-up maximum, which is use CCR0
 
@@ -56,13 +58,16 @@ void interupt_init_ccr1_for_led_brightness(void) {
     TA0CTL = TASSEL__ACLK | ID__1 | MC__UP | TACLR | TAIE;  // ACLK(32768Hz), up mode, clear TAR
     //TA0CTL = TASSEL__ACLK | ID__1 | MC__UP | TACLR       ;  // ACLK(32768Hz), up mode, clear TAR
 } // interupt_init_ccr1_for_led_brightness
+
 void interupt_init_ccr1_for_led_off(void) {
     //TA0CTL &= ( ~ TAIE ) ;  
     TA0CTL &= ( ~ MC__UPDOWN ) ;
     //ledB = LedBr0 ;
     P1DIR &= LedBrMask ;    // all as input --> off
 } // interupt_init_ccr1_for_led_off
+
 void interupt_init_ccr1_for_led_on(void) {
     //TA0CTL |=     TAIE   ;  
     TA0CTL |= MC__UP ;
 } // interupt_init_ccr1_for_led_on
+

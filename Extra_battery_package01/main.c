@@ -16,18 +16,20 @@ void mainY1(void) { // test led 0 1 2 3 4 5
 void mainY2(void) {
     //uint8_t __ii ;
     uint8_t __tickCNT ;
+    uint8_t __roundCNT ;
 #define __keyActived_default 128
 #define BatteryMask         0xFF // every 16 second check once
     //#define BatteryMask         0x1FF // every 32 second check once
     //#define BatteryMask         0x3FF // every 64 second check once
     uint8_t __keyActivedCNT ;
-    uint32_t __BatteryVoltageMV ;
+    uint32_t __BatteryVoltageMV_last ;
     uint32_t __BatteryVoltageMv2 ;
     uint8_t  __batteryLevel ;
 
     __tickCNT = 0 ;
+    __roundCNT = 0 ;
     __keyActivedCNT = 0 ;
-    __BatteryVoltageMV = 0 ;
+    __BatteryVoltageMV_last = 0 ;
     __BatteryVoltageMv2 = 0 ;
 
     ledB = LedBrX ; // for test only
@@ -42,37 +44,10 @@ void mainY2(void) {
         _WDT_wait_interrupt_LPM3 ;
 
         __tickCNT ++ ;
+
+        // every 0x10(gap 1 second), check : if vin16_read() getting high, always on;
+        // if vin16 is low, LED only on if __keyActivedCNT is NOT zero.
         if ( 0 == ( __tickCNT & 0xF ) ) {
-            if ( 0 ) {
-                _uart_p1_5_tx_only_put_u8d( key_1_read() ) ;//             _READbit_(key_1) 
-                _UART_P1_5_TX_PUT_CH(',');
-            }
-            if ( 0 ) {
-                _uart_p1_5_tx_only_put_u8d( __keyActivedCNT ) ;//             _READbit_(key_1) 
-                _UART_P1_5_TX_PUT_CH(',');
-            }
-
-            if ( 0 ) {
-                _UART_P1_5_TX_PUT_CH(' ');
-                _UART_P1_5_TX_PUT_CH('<');
-                _uart_p1_5_tx_only_put_uint32d(  __BatteryVoltageMV ) ;
-                _UART_P1_5_TX_PUT_CH('>');
-            } // if ( 0 == _BatteryChangeCnt ) 
-
-            if ( 0 ) {
-                _uart_p1_5_tx_only_put_u8d( __tickCNT >> 4 );
-                _uart_p1_5_tx_only_put_rn();
-            }
-
-            if ( 0 ) {
-                _UART_P1_5_TX_PUT_CH(' ');
-                if ( vin16_read() ) {
-                    _UART_P1_5_TX_PUT_CH('H');
-                } else {
-                    _UART_P1_5_TX_PUT_CH('L');
-                }
-            }
-
             // interupt_timer0_a0_isr
 
             if ( 1 ) { // deal with flash time : end
@@ -90,7 +65,20 @@ void mainY2(void) {
                     }
                 }
             } // deal with flash time : end
+
+            __roundCNT ++ ;
+            switch ( __roundCNT % 3 ) {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                default:
+                    break;
+            }
+            if ( __BatteryVoltageMV_last ) {
+            }
         }
+
         if ( 0 == __keyActivedCNT ) {
             if( 0 == key_1_read() ) {//             _READbit_(key_1) 
                 __keyActivedCNT = __keyActived_default ;
@@ -119,7 +107,7 @@ void mainY2(void) {
                     _battery_mv_calc_ledLevel( __BatteryVoltageMv2 );
                 ledB = _ledLevel_calc_ledIO(__batteryLevel) ;
 
-                __BatteryVoltageMV = __BatteryVoltageMv2  ;
+                __BatteryVoltageMV_last = __BatteryVoltageMv2  ;
                 if ( 1 ) {
                     _uart_p1_5_tx_only_put_uint32d(  __BatteryVoltageMv2 ) ;
                     _uart_p1_5_tx_only_put_u8d(  __batteryLevel ) ;
@@ -131,7 +119,7 @@ void mainY2(void) {
             _uart_p1_5_tx_only_put_rn();
             xCharge3_on(); 
         }
-    }
+    } // while loop
 } // mainY2
 
 int main(void) {
