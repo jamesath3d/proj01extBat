@@ -3,35 +3,8 @@
 #define _VTURN__INIT_H
 
 
-#define vturnOff_42_PORT_           2
-#define vturnOff_42_PIN_            7
-#define vturnOff_41_PORT_           2
-#define vturnOff_41_PIN_            5
-
-#define vturnOff_32_PORT_           2
-#define vturnOff_32_PIN_            0
-#define vturnOff_31_PORT_           3
-#define vturnOff_31_PIN_            2
-
-#define pMosG4__PORT_               2
-#define pMosG4__PIN_                2
-#define pMosG3__PORT_               3
-#define pMosG3__PIN_                0
-
-
-//#define vturnOff3_TO_1()           {             _SetIN_(vturnOff3y);              _SetIN_(vturnOff4); }     // to 1
-//#define vturnOff3_TO_0()           {            _SetOUT_(vturnOff3y);             _SetOUT_(vturnOff4); }     // to 0
-//#define vturnOff3__init()          { _PinInAsOffInitOut0(vturnOff3y);  _PinInAsOffInitOut0(vturnOff4); }
-//
-//#define vturnOff4_TO_1()           {              _SetIN_(vturnOff4y);             _SetIN_(vturnOff3); }     // to 1
-//#define vturnOff4_TO_0()           {             _SetOUT_(vturnOff4y);            _SetOUT_(vturnOff3); }     // to 0
-//#define vturnOff4__init()          {  _PinInAsOffInitOut0(vturnOff4y); _PinInAsOffInitOut0(vturnOff3); }
-
-//#define pMosG3      3,0
-//#define pMosG4      2,2
-//#define VturnOff42  2,7
-//#define VturnOff41  2,5
-//#define VturnOff31  3,2
+#define vLedBlue        2,5
+#define vLedGreen       2,2
 #define vturn3_acset    2,0
 #define vturn3_ovpset   2,1
 
@@ -43,42 +16,27 @@
 //        _Y1( LED_on,    led11 );
 //        _Y1( LED_off,   led11 );
 
-#define vturnOff3ip__to_0()             { _Y1( _Set0X,       vturn3_acset  ); }
-#define vturnOff3ip__to_1()             { _Y1( _Set1X,       vturn3_acset  ); }
-#define vturnOff3ip_acset__init()       { _Y1( _SetOutX0,    vturn3_acset  ); }
+#define vturnOff3ip__to_0()             {   _Y1( _Set0X,        vturn3_acset  ); }
+#define vturnOff3ip__to_1()             {   _Y1( _Set1X,        vturn3_acset  ); }
 #define xCharge3_on                     vturnOff3ip__to_0
 #define xCharge3_off                    vturnOff3ip__to_1
 
-#define vturnOff3vp_ovpset_init()           { _Y1( _SetOutX0,    vturn3_ovpset  ); }
+#define vturnOff3ip_acset__init()       {   _Y1( _SetOutX0,     vturn3_acset  ); }
+#define vturnOff3vp_ovpset_init()       {   _Y1( _SetOutX0,     vturn3_ovpset  ); }
+#define pMosLedBlue__init()             {   _Y1( _SetOutX0,     vLedBlue  ); }
+#define pMosLedGreen__init()            {   _Y1( _SetOutX1,     vLedGreen  ); }
 
-//#define vturnOff4__to_0()           { _Y1( _Set0X,       vTurn4  ); }
-//#define vturnOff4__to_1()           { _Y1( _Set1X,       vTurn4  ); }
-//#define vturnOff4__init()           { _Y1( _SetOutX0,    vTurn4  ); }
 
-//#define pMosG3__to_0()              { _Y1( _Set0X,       pMosG3  ); }
-//#define pMosG3__to_1()              { _Y1( _Set1X,       pMosG3  ); }
-//#define pMosG3__init()              { _Y1( _SetOutX0,    pMosG3  ); }
+#define xLedBlue_off()                  {   _Y1( _Set1X,        vLedBlue  ); }
+#define xLedGreen_off()                 {   _Y1( _Set1X,        vLedGreen  ); }
+#define xLedBlue_on()                   {   _Y1( _Set0X,        vLedBlue  ); }
+#define xLedGreen_on()                  {   _Y1( _Set0X,        vLedGreen  ); }
 
-//#define pMosG4__to_0()              { _Y1( _Set0X,       pMosG4  ); }
-//#define pMosG4__to_1()              { _Y1( _Set1X,       pMosG4  ); }
-//#define pMosG4__init()              { _Y1( _SetOutX0,    pMosG4  ); }
+#define xLedBlueGreenOff()              {   xLedBlue_off();     xLedGreen_off(); }
+#define xLedBlueGreenOn()               {   xLedBlue_on();      xLedGreen_on(); }
+#define xLedBlueOn()                    {   xLedBlue_on();      xLedGreen_off(); }
+#define xLedGreenOn()                   {   xLedBlue_off();     xLedGreen_on(); }
 
-//#define xCharge4_on             vturnOff4__to_0
-//#define xCharge4_off            vturnOff4__to_1
-
-//#define xHost3_on               pMosG3__to_1
-//#define xHost4_on               pMosG4__to_1
-//#define xHost3_off              pMosG3__to_0
-//#define xHost4_off              pMosG4__to_0
-//
-//#define xHost4_on()               
-//#define xHost4_off()              
-//#define xHost3_on()
-//#define xHost3_off()
-//#define xCharge4_on()             
-//#define xCharge4_off()            
-#define pMosG4__init()
-#define pMosG3__init()
 //#define vturnOff4__init()
 
 void vturn__init(void);

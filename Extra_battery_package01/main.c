@@ -38,6 +38,7 @@ void mainY2(void) {
     //xCharge4_off();
     //xHost3_on(); 
     xCharge3_on();
+    xLedBlueGreenOff();
 
     while( 1 )
     {
@@ -59,25 +60,53 @@ void mainY2(void) {
                     } else { // no charger, battery only, enter power save mode
                         if ( 0 == __keyActivedCNT ) { // power save mode : out of 4 second, turn off
                             interupt_init_ccr1_for_led_off();
+
+                            // if > 9.0v, the 2 minutes flash even though no key.
+                            if ( __BatteryVoltageMV_last > 9000 ) { 
+                                if ( 0 == (__roundCNT & 0x1F) ) { 
+                                    // 0x07 : 16 sec
+                                    // 0x1F : 64 sec force led on to show this battary is alive.
+                                    interupt_init_ccr1_for_led_on();
+                                    _UART_P1_5_TX_PUT_CH('-');
+                                }
+                            }
                         } else {                      // power save mode : within 4 second, turn on
                             interupt_init_ccr1_for_led_on();
                         }
                     }
                 }
+                //                if ( (__tickCNT & 0x20) ) {
+                //                    xLedBlueOn();
+                //                } else {
+                //                    xLedGreenOn();
+                //                }
             } // deal with flash time : end
 
-            __roundCNT ++ ;
-            switch ( __roundCNT % 3 ) {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                default:
-                    break;
+            if ( 0 == ( __tickCNT & 0x1F ) ) {
+                __roundCNT ++ ;
+                //_UART_P1_5_TX_PUT_CH('<');
+                switch ( __roundCNT & 3 ) {
+                    case 0:
+                        xLedBlueGreenOff();
+                        //_UART_P1_5_TX_PUT_CH('0');
+                        break;
+                    case 1:
+                        xLedGreenOn();
+                        //_UART_P1_5_TX_PUT_CH('1');
+                        break;
+                    case 2:
+                        xLedBlueOn();
+                        //_UART_P1_5_TX_PUT_CH('2');
+                        break;
+                    default:
+                        xLedBlueGreenOn();
+                        //_UART_P1_5_TX_PUT_CH('3');
+                        break;
+                }
+                //_UART_P1_5_TX_PUT_CH('>');
             }
-            if ( __BatteryVoltageMV_last ) {
-            }
-        }
+        } // end of whether LED is on
+
 
         if ( 0 == __keyActivedCNT ) {
             if( 0 == key_1_read() ) {//             _READbit_(key_1) 
@@ -111,7 +140,7 @@ void mainY2(void) {
                 if ( 1 ) {
                     _uart_p1_5_tx_only_put_uint32d(  __BatteryVoltageMv2 ) ;
                     _uart_p1_5_tx_only_put_u8d(  __batteryLevel ) ;
-                    _uart_p1_5_tx_only_put_str("0x");
+                    _uart_p1_5_tx_only_put_str(" 0x");
                     _uart_p1_5_tx_only_put_hex(  ledB ) ;
                     //_UART_P1_5_TX_PUT_CH(',');
                 }
