@@ -26,6 +26,7 @@ void mainY2(void) {
     uint32_t __BatteryVoltageMv2 ;
     uint8_t  __batteryLevel ;
 
+    __batteryLevel = 0 ;
     __tickCNT = 0 ;
     __roundCNT = 0 ;
     __keyActivedCNT = 0 ;
@@ -53,7 +54,11 @@ void mainY2(void) {
 
             if ( 1 ) { // deal with flash time : end
                 if ( (__tickCNT & 0x10) ) { // odd second : off
-                    interupt_init_ccr1_for_led_off();
+                    if ( __batteryLevel > 5 ) { // 6 : all-full
+                        xLedBlueOn();
+                    } else {
+                        interupt_init_ccr1_for_led_off();
+                    }
                 } else {                    // even sencod : if charger inserted, on ; if no charger , only flash 4 second.
                     if ( vin16_read() ) { // charger inserted
                         interupt_init_ccr1_for_led_on();

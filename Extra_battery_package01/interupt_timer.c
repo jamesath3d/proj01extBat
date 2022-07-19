@@ -3,7 +3,7 @@
 #include "main.h"
 
 volatile uint8_t ledB = LedBr0 ;
-const uint8_t ledBarr[] = { LedBrX , LedBr1, LedBr2, LedBr3, LedBr4, LedBr5 , LedBrY };
+const uint8_t ledBarr[] = { LedBrX , LedBr1, LedBr2, LedBr3, LedBr4, LedBr5 , LedBr5 , LedBrY };
 uint8_t _ledLevel_calc_ledIO( uint8_t ___ledLevel ) {
     if ( ___ledLevel > 6 ) return LedBrY ;
     return ledBarr[ ___ledLevel ] ;
