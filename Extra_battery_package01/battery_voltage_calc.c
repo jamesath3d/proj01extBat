@@ -21,19 +21,19 @@ uint8_t _battery_mv_calc_ledLevel( uint32_t ___battery_mv ) {
     __battery_ledLevel = 0 ;
 
     //led_1234_init_test_by_byte
-    if ( ___battery_mv <                    10200 ) {   // 10% , 0000_1
+    if ( ___battery_mv <                     9954 ) {   // 10% , 0000_1
         __battery_ledLevel                         = 0 ;
     } else {
-        if ( ___battery_mv <                10450 ) {   // 20%, 0001_1
+        if ( ___battery_mv <                10572 ) {   // 20%, 0001_1
             __battery_ledLevel                     = 1 ;
         } else {
-            if ( ___battery_mv <            10620 ) {   // 30%, 0011_1
+            if ( ___battery_mv <            10884 ) {   // 30%, 0011_1
                 __battery_ledLevel                 = 2 ;
             } else {
-                if ( ___battery_mv <        10980 ) {   // 65%, 0110_1
+                if ( ___battery_mv <        11328 ) {   // 65%, 0110_1
                     __battery_ledLevel             = 3 ;
                 } else {
-                    if ( ___battery_mv <    11960 ) {   // 95%, 0110_1
+                    if ( ___battery_mv <    11754 ) {   // 95%, 0110_1
                         __battery_ledLevel         = 4 ;
                     } else {
                         __battery_ledLevel         = 5 ;     // full

@@ -103,11 +103,13 @@ void mainY2(void) {
                         //_UART_P1_5_TX_PUT_CH('3');
                         break;
                 }
+                xLedGreenOn(); // force Green On
                 //_UART_P1_5_TX_PUT_CH('>');
             }
         } // end of whether LED is on
 
 
+        //__keyActivedCNT = __keyActived_default ;
         if ( 0 == __keyActivedCNT ) {
             if( 0 == key_1_read() ) {//             _READbit_(key_1) 
                 __keyActivedCNT = __keyActived_default ;
