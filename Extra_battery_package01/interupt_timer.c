@@ -3,9 +3,10 @@
 #include "main.h"
 
 volatile uint8_t ledB = LedBr0 ;
-const uint8_t ledBarr[] = { LedBrX , LedBr1, LedBr2, LedBr3, LedBr4, LedBr5 , LedBr5 , LedBrY };
+// _battery_mv_calc_ledLevel : 0       1        2      3      4       5        6        7       ERR2
+const uint8_t ledBarr[] = { LedBrX , LedBr1, LedBr1, LedBr2, LedBr3, LedBr4, LedBr5 , LedBr5 , LedBrY };
 uint8_t _ledLevel_calc_ledIO( uint8_t ___ledLevel ) {
-    if ( ___ledLevel > 6 ) return LedBrY ;
+    if ( ___ledLevel > 7 ) return LedBrY ;
     return ledBarr[ ___ledLevel ] ;
 } // _ledLevel_calc_ledIO
 // TA0IV
