@@ -5,7 +5,7 @@
 
 
 void mainY1(void) { // test led 0 1 2 3 4 5
-    for ( uint8_t __ii = 0 ; __ii <=5 ; __ii ++ ) {
+    for ( uint8_t __ii = 0 ; __ii <=7 ; __ii ++ ) {
         ledB = _ledLevel_calc_ledIO(__ii) ; // for test only
         _uart_p1_5_tx_only_put_u8d( __ii );
         _uart_p1_5_tx_only_put_rn();
@@ -54,10 +54,14 @@ void mainY2(void) {
 
             if ( 1 ) { // deal with flash time : end
                 if ( (__tickCNT & 0x10) ) { // odd second : off
-                    if ( __batteryLevel > 5 ) { // 6 : all-full
+                    if ( __batteryLevel == 7 ) { // 7 : all-full
                         xLedBlueOn();
                     } else {
-                        interupt_init_ccr1_for_led_off();
+                        if ( __batteryLevel == 1 ) { // 1 : almost-empty, need charge at once
+                            xLedBlueOn();
+                        } else {
+                            interupt_init_ccr1_for_led_off();
+                        }
                     }
                 } else {                    // even sencod : if charger inserted, on ; if no charger , only flash 4 second.
                     if ( vin16_read() ) { // charger inserted
@@ -67,7 +71,7 @@ void mainY2(void) {
                             interupt_init_ccr1_for_led_off();
 
                             // if > 9.0v, the 2 minutes flash even though no key.
-                            if ( __BatteryVoltageMV_last > 9000 ) { 
+                            if ( __BatteryVoltageMV_last > 8000 ) { 
                                 if ( 0 == (__roundCNT & 0x1F) ) { 
                                     // 0x07 : 16 sec
                                     // 0x1F : 64 sec force led on to show this battary is alive.
@@ -113,11 +117,18 @@ void mainY2(void) {
             }
         } // end of whether LED is on
 
+        if (1 == __batteryLevel) {
+            if ( 0x3E == (0x3F & __tickCNT ))  {
+                _UART_P1_5_TX_PUT_CH('#');
+                //__keyActivedCNT = (__keyActived_default>>3) ;
+                interupt_init_ccr1_for_led_on();
+            }
+        }
 
-        //__keyActivedCNT = __keyActived_default ;
         if ( 0 == __keyActivedCNT ) {
             if( 0 == key_1_read() ) {//             _READbit_(key_1) 
                 __keyActivedCNT = __keyActived_default ;
+            } else {
             }
         } else {
             __keyActivedCNT -- ;
