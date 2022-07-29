@@ -128,6 +128,7 @@ void mainY2(void) {
         if ( 0 == __keyActivedCNT ) {
             if( 0 == key_1_read() ) {//             _READbit_(key_1) 
                 __keyActivedCNT = __keyActived_default ;
+                interupt_init_ccr1_for_led_on();
             } else {
             }
         } else {
