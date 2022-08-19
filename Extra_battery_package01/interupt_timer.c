@@ -50,8 +50,9 @@ void interupt_init_ccr1_for_led_brightness(void) {
 
     TA0CCTL1 = OUTMOD_7 | CCIE ;             // CCR1 7 PWM reset/set
     //TA0CCR1 =   5;                           // CCR1 PWM duty cycle
-    TA0CCR1 =   35;                           // CCR1 PWM duty cycle
+    //TA0CCR1 =   35;                           // CCR1 PWM duty cycle
     //TA0CCR1 =   95;                           // CCR1 PWM duty cycle
+    TA0CCR1 =  235;                           // CCR1 PWM duty cycle
     //TA0CCR1 =  335;                           // CCR1 PWM duty cycle
     //TA0CCTL2 = OUTMOD_7 | CCIE ;           // CCR2 3 PWM set/reset 
     //TA0CCR2 = 115;                         // CCR2 PWM duty cycle
